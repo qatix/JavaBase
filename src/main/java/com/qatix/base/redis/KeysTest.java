@@ -1,7 +1,7 @@
 package com.qatix.base.redis;
 
+import org.apache.commons.lang3.time.FastDateFormat;
 import redis.clients.jedis.Jedis;
-import util.DateUtils;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -13,7 +13,6 @@ public class KeysTest {
 
     private static final int redisPort = 6379;
     private static final String redisPassword = "";
-//    private static final String redisPassword = "c03e0abdf8f44d45:Ccwk1804";
 
     public static void main(String[] args) {
         Jedis jedis = new Jedis(redisHost,redisPort,60000);
@@ -24,8 +23,7 @@ public class KeysTest {
         Set<String> names=jedis.keys("bill_date:*:d:*");
         System.out.println(names.size());
 
-        String todayStr = DateUtils.formatDateWithFormat(new Date(System.currentTimeMillis()-86400000),"yyyyMMdd");
-        System.out.println("ccc = " + todayStr.compareTo(todayStr));
+        String todayStr = FastDateFormat.getInstance("yyyyMMdd").format(new Date());
         Iterator<String> it = names.iterator();
         while (it.hasNext()) {
             String key = it.next();

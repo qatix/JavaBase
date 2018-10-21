@@ -10,6 +10,7 @@ public class ExecutorServiceTest {
 
     private void testExecute() {
         es.execute(new Runnable() {
+            @Override
             public void run() {
                 System.out.println("testExecute executed");
             }
@@ -18,6 +19,7 @@ public class ExecutorServiceTest {
 
     private void testSubmitRunable() throws ExecutionException, InterruptedException {
         Future future = es.submit(new Runnable() {
+            @Override
             public void run() {
                 System.out.println("test runnable");
             }
@@ -27,6 +29,7 @@ public class ExecutorServiceTest {
 
     private void testSubmitCallable() throws ExecutionException, InterruptedException {
         final Future future = es.submit(new Callable() {
+            @Override
             public Object call() throws Exception {
                 System.out.println("aysnchronous called");
                 return "callable test";
@@ -41,9 +44,7 @@ public class ExecutorServiceTest {
             est.testSubmitRunable();
             est.testSubmitCallable();
             est.testExecute();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
