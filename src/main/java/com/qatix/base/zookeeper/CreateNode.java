@@ -21,7 +21,6 @@ public class CreateNode implements Watcher {
         ZooKeeper zooKeeper = new ZooKeeper("localhost:2181",timeOut,new CreateNode());
         countDownLatch.await();
 
-
         String ephemeralPath = zooKeeper.create("/zk-test-ephermeral-","111".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Sync create ephemeral node succeed:" + ephemeralPath);
 
@@ -31,7 +30,6 @@ public class CreateNode implements Watcher {
         zooKeeper.create("/zk-test-ephermeral-async-","333".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.EPHEMERAL,new MyStringCallback(),"Params1");
 
         zooKeeper.create("/zk-test-sequential-async-","444".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.EPHEMERAL_SEQUENTIAL,new MyStringCallback(),"Params2");
-
 
         String persitentPath1 = zooKeeper.create("/pnode","111".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         System.out.println("Sync create persitent node succeed:" + persitentPath1);
