@@ -19,8 +19,6 @@ public class RefectionTest {
                 .where(new TypeParameter<V>() {}, valueToken);
     }
 
-
-
     private static void testTypeToken(){
         TypeToken<String> stringTok = TypeToken.of(String.class);
         TypeToken<Integer> intTok = TypeToken.of(Integer.class);
