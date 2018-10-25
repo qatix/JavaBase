@@ -1,0 +1,38 @@
+Start zookeeper server:
+
+    $ bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start kafka server:
+
+    $ bin/kafka-server-start.sh config/server.properties
+
+Create one topic name "my_topic":
+
+    $ bin/kafka-topics.sh --create --topic my_topic --zookeeper localhost:2181 --replication-factor 1 --partitions 1
+
+Start the producer:
+
+    $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic my_topic
+
+Start the consumer:
+
+    $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my_topic --from-beginning
+
+Delete a topic
+ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic test
+
+Topic test is marked for deletion.
+Note: This will have no impact if delete.topic.enable is not set to true.
+
+List topics
+
+	bin/kafka-topics.sh --list  --zookeeper localhost:2181
+
+
+Describe a topic
+	bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic myad
+
+
+List Consumer-group
+	bin/kafka-consumer-groups.sh  --list --bootstrap-server localhost:9092
+	bin/kafka-consumer-groups.sh --describe --group mygroup --bootstrap-server localhost:9092
