@@ -7,6 +7,7 @@ import java.util.Collections;
 /**
  * 基于redis实现分布式锁
  * https://www.cnblogs.com/love-cj/p/8242439.html
+ * https://redis.io/topics/distlock
  */
 public class RedisLock {
     private static final String LOCK_SUCCESS = "OK";

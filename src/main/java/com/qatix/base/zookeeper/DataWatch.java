@@ -23,11 +23,12 @@ public class DataWatch implements Watcher {
         ZooKeeper zk = new ZooKeeper("localhost:2181", timeOut, new DataWatch());
         countDownLatch.await();
 
-        String ephemeralPath = zk.create("/zk-data", "111".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+        Thread.sleep(2000);
+        String ephemeralPath = zk.create("/zk-data2", "111".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Sync create ephemeral node succeed:" + ephemeralPath);
 
-        Thread.sleep(2000);
-        zk.setData("/zk-data", "443".getBytes(), -1);
+
+        zk.setData("/zk-data2", "443".getBytes(), -1);
 
         Thread.sleep(300000);//等待结果
     }
