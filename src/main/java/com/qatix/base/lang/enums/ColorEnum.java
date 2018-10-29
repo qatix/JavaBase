@@ -1,4 +1,4 @@
-package com.qatix.base.lang.enumtest;
+package com.qatix.base.lang.enums;
 
 public enum ColorEnum {
     RED("红色",1),
