@@ -45,7 +45,7 @@ class CountTask extends RecursiveTask<Long> {
         } else {
             long step = (end - start) / 100; //分成100个任务
             System.out.println("step="+step);
-            ArrayList<CountTask> subTasks = new ArrayList<CountTask>();
+            ArrayList<CountTask> subTasks = new ArrayList<>();
             long pos = start;
             for (int i = 0; i < 100; i++) {
                 long lastOne = pos + step;
