@@ -142,5 +142,23 @@
             <artifactId>geoip2</artifactId>
             <version>2.12.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>6.4.2</version>
+        </dependency>
     </dependencies>
 </project>

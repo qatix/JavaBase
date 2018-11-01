@@ -1,0 +1,2 @@
+命令行建立索引
+https://www.elastic.co/assets/blt395810ab50bd150b/6.3_es_commands.txt
