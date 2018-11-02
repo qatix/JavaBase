@@ -14,7 +14,7 @@ import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import java.io.IOException;
 
 /**
- * doc : https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html
+ * @see https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html
  * @Author: Logan.Tang
  * @Date: 2018/11/1 4:27 PM
  */
