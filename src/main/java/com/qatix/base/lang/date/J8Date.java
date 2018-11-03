@@ -1,6 +1,7 @@
 package com.qatix.base.lang.date;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +26,9 @@ public class J8Date {
         String st = dateTimeFormatter.format(LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()),
                 ZoneId.of("Asia/Shanghai")));
         System.out.println(st);
+
+        System.out.println(LocalDateTime.now());
+        System.out.println(DateTimeFormatter.ofPattern("YYYY-MM-dd").format(LocalDate.now()));
         System.out.println("-----------");
 
         //ZonedDateTime
