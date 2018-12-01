@@ -12,6 +12,7 @@ import java.util.Map;
 public class HashMapExample {
     public static void main(String[] args) {
         System.out.println("HashMap");
+        //默认capacity = 16
         Map<String,String> map = new HashMap<>();
         map.put("a3","11");
         map.put("a2","22");
@@ -24,6 +25,9 @@ public class HashMapExample {
         for (Map.Entry<String,String> entry:map.entrySet()){
             System.out.println(entry.getKey() + "|" + entry.getValue());
         }
+
+        System.out.println(map.toString());
+        System.out.println(map.values());
 
         System.out.println("LinkedHashMap");
         //内部维持了一个双向链表,可以保持顺序
