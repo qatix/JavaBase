@@ -28,7 +28,7 @@ public class LogRdsPool {
         poolConfig.setMinEvictableIdleTimeMillis(rdsConfig.getMinEvictableIdleTimeMillis());
 
         pool = ConnectionPoolSupport
-                .createGenericObjectPool(() -> client.connect(), poolConfig);
+                .createGenericObjectPool(client::connect, poolConfig);
     }
 
     public StatefulRedisConnection<String, String> borrowObject() {
