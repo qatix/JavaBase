@@ -35,7 +35,7 @@ public class GetClassExample {
         Class clazz1 = Student.class;
         Class clazz2 = Student.class;
         System.out.println(clazz1);
-        System.out.println("clazz1==clazz2:" + (clazz1 == clazz2));
+        System.out.println("clazz1==clazz2:" + (clazz1 == clazz2)); //true
     }
 
     private static void test3(){
@@ -47,7 +47,7 @@ public class GetClassExample {
         Student student2 = new Student();
         Class clazz2 = student2.getClass();
 
-        System.out.println("new clazz1==clazz2:" + (clazz1 == clazz2));
+        System.out.println("new clazz1==clazz2:" + (clazz1 == clazz2)); //true
 
     }
 

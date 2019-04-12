@@ -17,7 +17,7 @@ public class MatchExample {
 
     }
 
-    public static boolean match(String regex,String str){
+    private static boolean match(String regex, String str){
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
