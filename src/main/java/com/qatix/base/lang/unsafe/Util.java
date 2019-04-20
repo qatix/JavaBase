@@ -5,6 +5,11 @@ import sun.misc.Unsafe;
 import java.lang.reflect.Field;
 
 final class Util {
+    /**
+     * 反射获取unsafe对象
+     *
+     * @return unsafe对象
+     */
     public static Unsafe getUnsafe() {
         try {
             Field field = Unsafe.class.getDeclaredField("theUnsafe");
