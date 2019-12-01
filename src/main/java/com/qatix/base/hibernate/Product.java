@@ -29,7 +29,7 @@ public class Product {
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "category_id",referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @Column(name = "no")

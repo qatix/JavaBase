@@ -34,17 +34,17 @@ public class OrderRead {
 
             byte[] temprowarray = new byte[rowlength];
             System.arraycopy(rowArray, rowoffset, temprowarray, 0, rowlength);
-            String temprow= Bytes.toString(temprowarray);
+            String temprow = Bytes.toString(temprowarray);
 //            System.out.println(Bytes.toString(temprowarray));
 
             byte[] tempqulifierarray = new byte[qualifierlength];
             System.arraycopy(qualifierArray, qualifieroffset, tempqulifierarray, 0, qualifierlength);
-            String tempqulifier= Bytes.toString(tempqulifierarray);
+            String tempqulifier = Bytes.toString(tempqulifierarray);
 //            System.out.println(Bytes.toString(tempqulifierarray));
 
             byte[] tempfamilyarray = new byte[familylength];
             System.arraycopy(familyArray, familyoffset, tempfamilyarray, 0, familylength);
-            String tempfamily= Bytes.toString(tempfamilyarray);
+            String tempfamily = Bytes.toString(tempfamilyarray);
 //            System.out.println(Bytes.toString(tempfamilyarray));
 
             byte[] tempvaluearray = new byte[valuelength];
@@ -65,11 +65,11 @@ public class OrderRead {
         }
         resMap.put("rowname", rowname);
         for (String familyname : familynamelist) {
-            HashMap<String,Object> tempFilterMap = new HashMap<String,Object>();
+            HashMap<String, Object> tempFilterMap = new HashMap<String, Object>();
             for (String key : tempMap.keySet()) {
                 String[] keyArray = key.split(":");
-                if(keyArray[0].equals(familyname)){
-                    tempFilterMap.put(keyArray[1],tempMap.get(key));
+                if (keyArray[0].equals(familyname)) {
+                    tempFilterMap.put(keyArray[1], tempMap.get(key));
                 }
             }
             resMap.put(familyname, tempFilterMap);
@@ -88,21 +88,21 @@ public class OrderRead {
 //        eg.createTable(tableName,columnFamily);
 //        System.out.println("create table done");
 
-        Result res = eg.getRow(tableName,"XSD15102600100018");
+        Result res = eg.getRow(tableName, "XSD15102600100018");
 
 //        System.out.println(resultToMap(res).toString());
 //        eg.scan(tableName);
 
-        byte[] bs = res.getValue(Bytes.toBytes(columnFamily),Bytes.toBytes("name"));
+        byte[] bs = res.getValue(Bytes.toBytes(columnFamily), Bytes.toBytes("name"));
         String s = new String(bs);
         System.out.println(s);
 
-        bs = res.getValue(Bytes.toBytes(columnFamily),Bytes.toBytes("qty"));
+        bs = res.getValue(Bytes.toBytes(columnFamily), Bytes.toBytes("qty"));
         String qty = new String(bs);
         System.out.println(qty);
 
 
-        bs = res.getValue(Bytes.toBytes(columnFamily),Bytes.toBytes("price"));
+        bs = res.getValue(Bytes.toBytes(columnFamily), Bytes.toBytes("price"));
         String price = new String(bs);
         System.out.println(price);
 

@@ -8,10 +8,10 @@ public class SClzTest {
     public static void main(String[] args) {
         System.out.println("start");
         //什么都不会执行
-         SClz sClz1;
+        SClz sClz1;
 
         System.out.println("--------");
-         //static block code
+        //static block code
         //Inner Clz constructed
         SClz sClz = new SClz("123");
 

@@ -7,7 +7,12 @@ import java.util.function.Consumer;
  * @Date: 2018/12/1 10:36 AM
  */
 public class ConsumerExample {
-    private static class Student{
+    public static void main(String[] args) {
+        Consumer<Student> consumer = (s) -> System.out.println("Hello," + s.getName());
+        consumer.accept(new Student("Feng"));
+    }
+
+    private static class Student {
         private String name;
 
         public Student(String name) {
@@ -17,10 +22,5 @@ public class ConsumerExample {
         public String getName() {
             return name;
         }
-    }
-
-    public static void main(String[] args) {
-        Consumer<Student> consumer = (s) -> System.out.println("Hello,"+s.getName());
-        consumer.accept(new Student("Feng"));
     }
 }

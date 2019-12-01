@@ -9,8 +9,10 @@ public class DealLockDemo {
         t2.start();//启动另一个线程
     }
 }
+
 class DeadLockclass implements Runnable {
     public boolean falg;// 控制线程
+
     DeadLockclass(boolean falg) {
         this.falg = falg;
     }

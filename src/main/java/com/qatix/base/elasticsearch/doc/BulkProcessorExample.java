@@ -1,7 +1,6 @@
 package com.qatix.base.elasticsearch.doc;
 
 import com.qatix.base.elasticsearch.Config;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.bulk.BackoffPolicy;

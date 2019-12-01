@@ -12,13 +12,13 @@ public class MainApp {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(ConfigC.class);
 
-        BeanA beanA=context.getBean(BeanA.class);
+        BeanA beanA = context.getBean(BeanA.class);
         beanA.doSomething();
 
-        BeanB beanB=context.getBean(BeanB.class);
+        BeanB beanB = context.getBean(BeanB.class);
         beanB.doSomething();
 
-        BeanC beanC=context.getBean(BeanC.class);
+        BeanC beanC = context.getBean(BeanC.class);
         beanC.doSomething();
 
         context.close();

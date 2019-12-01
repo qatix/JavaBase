@@ -17,14 +17,14 @@ public class AtomicIntegerArrayTest {
 
         int value = ar2.get(5);
         System.out.println(value);
-        ar2.set(5,99);
+        ar2.set(5, 99);
         System.out.println(ar2);
 
-        boolean swaped = ar2.compareAndSet(5,99,56);
+        boolean swaped = ar2.compareAndSet(5, 99, 56);
         System.out.println(swaped);
         System.out.println(ar2);
 
-        int newValue = ar2.addAndGet(4,23);
+        int newValue = ar2.addAndGet(4, 23);
         System.out.println(newValue);
 
         newValue = ar2.incrementAndGet(4);

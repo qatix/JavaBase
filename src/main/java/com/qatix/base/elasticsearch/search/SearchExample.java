@@ -82,7 +82,7 @@ public class SearchExample {
         int hitIdx = 1;
         for (SearchHit hit : searchHits) {
             System.out.println("result hit:" + hitIdx++);
-            System.out.println(hit.getIndex() + "|"+ hit.getType() + "|" + hit.getId() + "|" + hit.getScore());
+            System.out.println(hit.getIndex() + "|" + hit.getType() + "|" + hit.getId() + "|" + hit.getScore());
             System.out.println(hit.getSourceAsString());
             System.out.println(hit.toString());
             System.out.println("hightlightFields:" + hit.getHighlightFields().toString());

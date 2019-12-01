@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @see   https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html
  * @Author: Logan.Tang
  * @Date: 2018/11/1 5:02 PM
+ * @see https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html
  */
 public class IndexExample {
 

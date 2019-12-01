@@ -25,7 +25,7 @@ public class DeleteExample {
                         new HttpHost(Config.ES_HOST, Config.ES_PORT, Config.ES_SCHEMA)
                 ));
 
-        DeleteRequest request = new DeleteRequest("posts","doc","1");
+        DeleteRequest request = new DeleteRequest("posts", "doc", "1");
         request.timeout("2m");
 
         request.setRefreshPolicy(WriteRequest.RefreshPolicy.WAIT_UNTIL);
@@ -48,19 +48,19 @@ public class DeleteExample {
                 System.out.println("version:" + version);
 
                 ReplicationResponse.ShardInfo shardInfo = deleteResponse.getShardInfo();
-                if(shardInfo.getTotal() != shardInfo.getSuccessful()){
+                if (shardInfo.getTotal() != shardInfo.getSuccessful()) {
                     //Handle the situation where number of successful shards is less than total shards
                     System.err.println("total is not equal success");
                 }
 
-                if(shardInfo.getFailed() > 0){
-                    for (ReplicationResponse.ShardInfo.Failure failure:shardInfo.getFailures()){
+                if (shardInfo.getFailed() > 0) {
+                    for (ReplicationResponse.ShardInfo.Failure failure : shardInfo.getFailures()) {
                         String reason = failure.reason();
                         System.out.println("fail reason:" + reason);
                     }
                 }
 
-                if(deleteResponse.getResult() == DocWriteResponse.Result.NOT_FOUND){
+                if (deleteResponse.getResult() == DocWriteResponse.Result.NOT_FOUND) {
                     //the document to be deleted was not found
                     System.err.println("doc not found");
                 }

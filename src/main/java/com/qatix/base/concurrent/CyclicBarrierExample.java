@@ -9,12 +9,12 @@ public class CyclicBarrierExample {
 //        CyclicBarrier barrier = new CyclicBarrier(N);
         //会从多个子线程中选个一个来执行后面的Runnable
         CyclicBarrier barrier = new CyclicBarrier(N, () -> System.out.println("Current Thread is " + Thread.currentThread().getName()));
-        for (int i=0;i<N;i++){
+        for (int i = 0; i < N; i++) {
             new Writer(barrier).start();
         }
     }
 
-    static class Writer extends Thread{
+    static class Writer extends Thread {
         private CyclicBarrier barrier;
 
         public Writer(CyclicBarrier barrier) {

@@ -10,13 +10,13 @@ import org.apache.curator.shaded.com.google.common.collect.TreeRangeMap;
  */
 public class RangeMapExample {
     public static void main(String[] args) {
-        RangeMap<Integer,String> rangeMap = TreeRangeMap.create();
-        rangeMap.put(Range.closed(1,10),"tang");
-        rangeMap.put(Range.open(3,6),"li");
-        rangeMap.put(Range.open(10,20),"huang");
+        RangeMap<Integer, String> rangeMap = TreeRangeMap.create();
+        rangeMap.put(Range.closed(1, 10), "tang");
+        rangeMap.put(Range.open(3, 6), "li");
+        rangeMap.put(Range.open(10, 20), "huang");
         System.out.println(rangeMap.toString());
 
-        rangeMap.remove(Range.closed(5,11));
+        rangeMap.remove(Range.closed(5, 11));
         System.out.println(rangeMap.toString());
     }
 }

@@ -16,13 +16,13 @@ public class MyService implements InitializingBean {
         log.info("construct invoke");
     }
 
-    private void func1(){
+    private void func1() {
         log.info("func1 invoke");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-      log.info("afterPropertiesSet invoke");
-      func1();
+        log.info("afterPropertiesSet invoke");
+        func1();
     }
 }

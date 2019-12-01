@@ -6,7 +6,7 @@ public class ScheduledExecutorServiceTest {
 
     public static void main(String[] args) {
 
-       Thread thread = new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             public void run() {
                 int sec = 0;
                 while (true) {
@@ -22,7 +22,7 @@ public class ScheduledExecutorServiceTest {
             }
 
         });
-       thread.start();
+        thread.start();
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(5);
         ScheduledFuture<String> scheduledFuture = ses.schedule(new Callable<String>() {
             public String call() throws Exception {

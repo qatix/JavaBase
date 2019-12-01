@@ -1,8 +1,9 @@
 package com.qatix.base.log.lombok;
 
+import lombok.val;
+
 import java.util.HashMap;
 import java.util.Map;
-import lombok.val;
 
 /**
  * @Author: Logan.Tang
@@ -20,7 +21,7 @@ public class ValExample {
     }
 
     private static void test2() {
-        val map =  new HashMap<Integer, String>();
+        val map = new HashMap<Integer, String>();
         map.put(0, "zero");
         map.put(5, "five");
         for (val entry : map.entrySet()) {

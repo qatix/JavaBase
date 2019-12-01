@@ -30,7 +30,7 @@ public class RangeTest {
 
         ImmutableSortedSet<Integer> set = ContiguousSet.create(Range.open(1, 5), DiscreteDomain.integers());
         // set contains [2, 3, 4]
-        for (Integer i : set){
+        for (Integer i : set) {
             System.out.println(i);
         }
     }

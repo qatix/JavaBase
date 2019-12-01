@@ -9,42 +9,40 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class MyThreadPool {
 
+    private final ReentrantLock lock = new ReentrantLock();
     private ArrayList<MyThread> threads;
     private ArrayBlockingQueue<Runnable> taskQueue;
-
     private int threadNum;
     private int workThreadNum;
-
-    private final ReentrantLock lock = new ReentrantLock();
 
     public MyThreadPool(int threadNum) {
         this.threadNum = threadNum;
         threads = new ArrayList<>(threadNum);
-        taskQueue = new ArrayBlockingQueue<>(threadNum*4);
+        taskQueue = new ArrayBlockingQueue<>(threadNum * 4);
 
         workThreadNum = 0;
     }
 
 
-    public void execute(Runnable runnable){
+    public void execute(Runnable runnable) {
         try {
             lock.lock();
-            if(workThreadNum < this.threadNum){
-                MyThread myThread = new MyThread(runnable,taskQueue);
+            if (workThreadNum < this.threadNum) {
+                MyThread myThread = new MyThread(runnable, taskQueue);
                 myThread.start();
                 threads.add(myThread);
                 workThreadNum++;
-            }else{
-                if(!taskQueue.offer(runnable)){
+            } else {
+                if (!taskQueue.offer(runnable)) {
                     rejectTask(runnable);
                 }
             }
-        }finally {
+        } finally {
             lock.unlock();
         }
     }
 
-    private void rejectTask(Runnable task){
-        System.out.println("task queue is full,task:" + task+" has been rejected");
+    private void rejectTask(Runnable task) {
+        System.out.println("task queue is full,task:" + task + " has been rejected");
     }
 }

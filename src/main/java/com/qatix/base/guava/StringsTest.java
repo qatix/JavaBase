@@ -1,6 +1,5 @@
 package com.qatix.base.guava;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 
@@ -9,23 +8,23 @@ import java.util.Iterator;
 
 public class StringsTest {
 
-    private static void testJoiner(){
+    private static void testJoiner() {
         Joiner joiner = Joiner.on(";").skipNulls();
-        String str = joiner.join("aaa",null,"bbb","122");
+        String str = joiner.join("aaa", null, "bbb", "122");
         System.out.println(str);
 
         String str2 = Joiner.on(",").join(Arrays.asList(1, 5, 7));
         System.out.println(str2);
     }
 
-    public static  void testSplitter(){
+    public static void testSplitter() {
         Iterable<String> its = Splitter.on(',')
                 .trimResults()
                 .omitEmptyStrings()
                 .split("foo,bar,,   qux");
-        Iterator<String>  it =  its.iterator();
-        while (it.hasNext()){
-            System.out.println("split:"+it.next());
+        Iterator<String> it = its.iterator();
+        while (it.hasNext()) {
+            System.out.println("split:" + it.next());
         }
     }
 

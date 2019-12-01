@@ -10,17 +10,6 @@ import java.util.List;
  * @Date: 2018/12/3 9:27 AM
  */
 public class FlatMapExample2 {
-    @Data
-    private static class Person {
-        private String name;
-        private List<String> languages;
-
-        public Person(String name, List<String> languages) {
-            this.name = name;
-            this.languages = languages;
-        }
-    }
-
     public static void main(String[] args) {
         Person person1 = new Person("Mike", Arrays.asList("Java", "Scala"));
         Person person2 = new Person("Devid", Arrays.asList("Php", "JavaScript"));
@@ -38,5 +27,16 @@ public class FlatMapExample2 {
                 .map(p -> p.getLanguages())   // return Stream<List<String>>
                 .flatMap(l -> l.stream())     // return Stream<String>
                 .forEach(System.out::println);
+    }
+
+    @Data
+    private static class Person {
+        private String name;
+        private List<String> languages;
+
+        public Person(String name, List<String> languages) {
+            this.name = name;
+            this.languages = languages;
+        }
     }
 }

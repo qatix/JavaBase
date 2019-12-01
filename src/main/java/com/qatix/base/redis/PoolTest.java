@@ -23,7 +23,8 @@ public class PoolTest {
             jedis.set("foo", "bar");
             String foobar = jedis.get("foo");
             System.out.println(foobar);
-            jedis.zadd("sose", 0, "car"); jedis.zadd("sose", 0, "bike");
+            jedis.zadd("sose", 0, "car");
+            jedis.zadd("sose", 0, "bike");
             Set<String> sose = jedis.zrange("sose", 0, -1);
             System.out.println(sose);
         } finally {

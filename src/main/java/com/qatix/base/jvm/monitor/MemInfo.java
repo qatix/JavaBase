@@ -9,9 +9,9 @@ public class MemInfo {
         long free = java.lang.Runtime.getRuntime().freeMemory();
         long total = java.lang.Runtime.getRuntime().totalMemory();
         StringBuffer buf = new StringBuffer();
-        buf.append("[Mem: used ").append((total-free)>>20)
-                .append("M free ").append(free>>20)
-                .append("M total ").append(total>>20).append("M]");
+        buf.append("[Mem: used ").append((total - free) >> 20)
+                .append("M free ").append(free >> 20)
+                .append("M total ").append(total >> 20).append("M]");
         return buf.toString();
     }
 

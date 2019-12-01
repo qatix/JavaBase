@@ -11,17 +11,17 @@ public class StaticSingletonTest {
     }
 }
 
-class StaticSingleton{
+class StaticSingleton {
 
-    private StaticSingleton(){
+    private StaticSingleton() {
         System.out.println("StaticSingleton is create");
     }
 
-    private static class SingletonHolder{
-        private static StaticSingleton instance = new StaticSingleton();
+    public static StaticSingleton getInstance() {
+        return SingletonHolder.instance;
     }
 
-    public static StaticSingleton getInstance(){
-        return SingletonHolder.instance;
+    private static class SingletonHolder {
+        private static StaticSingleton instance = new StaticSingleton();
     }
 }

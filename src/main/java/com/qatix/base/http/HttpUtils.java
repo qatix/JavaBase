@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @see https://www.mkyong.com/java/apache-httpclient-examples/
  * @Author: Logan.Tang
  * @Date: 2018/11/2 2:29 PM
+ * @see https://www.mkyong.com/java/apache-httpclient-examples/
  */
 public class HttpUtils {
     public static final String USER_AGENT = "Mozilla/6.0";

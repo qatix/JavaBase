@@ -16,7 +16,7 @@ public class SyncProducer {
 
         producer.start();
         System.out.println("producer start");
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             Message msg = new Message(
                     "TopicTest",
                     "TagA",
@@ -25,12 +25,12 @@ public class SyncProducer {
             );
 
             SendResult sendResult = producer.send(msg);
-            System.out.printf("%s%n",sendResult);
+            System.out.printf("%s%n", sendResult);
         }
 
         long start = System.currentTimeMillis();
         long N = 100000;
-        for (int i=0;i< N ;i++){
+        for (int i = 0; i < N; i++) {
             Message msg = new Message(
                     "TopicTest3",
                     "TagA",
@@ -40,12 +40,12 @@ public class SyncProducer {
 
             SendResult sendResult = producer.send(msg);
 //            System.out.printf("%s%n",sendResult);
-            if(i%10000==0){
+            if (i % 10000 == 0) {
                 System.out.println(" >> " + i);
             }
         }
         long end = System.currentTimeMillis();
-        long tps = N/(end-start)*1000;
+        long tps = N / (end - start) * 1000;
         System.out.println("tps:" + tps);//tps : 3000
 
 

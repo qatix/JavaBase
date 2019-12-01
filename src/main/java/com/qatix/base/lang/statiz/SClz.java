@@ -1,7 +1,5 @@
 package com.qatix.base.lang.statiz;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * @Author: Logan.Tang
  * @Date: 2018/10/29 6:45 PM
@@ -9,22 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 
 public class SClz {
     public static final String ABC = "ABC";
+    public static InnerClz innerClz = new InnerClz();
 
     static {
         System.out.println("static block code");
-    }
-
-    public static InnerClz innerClz = new InnerClz();
-
-    static class InnerClz {
-        public InnerClz() {
-            System.out.println("Inner Clz constructed");
-        }
-
-        @Override
-        public String toString() {
-            return "InnerClz";
-        }
     }
 
     private String name;
@@ -39,5 +25,16 @@ public class SClz {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    static class InnerClz {
+        public InnerClz() {
+            System.out.println("Inner Clz constructed");
+        }
+
+        @Override
+        public String toString() {
+            return "InnerClz";
+        }
     }
 }

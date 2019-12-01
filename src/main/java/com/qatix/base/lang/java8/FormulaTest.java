@@ -11,7 +11,7 @@ public class FormulaTest {
         Formula formula = new Formula() {
             @Override
             public double calculate(int a) {
-                return a+a;
+                return a + a;
             }
         };
 

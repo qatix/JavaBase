@@ -3,7 +3,6 @@ package com.qatix.base.lock;
 import org.apache.commons.lang3.RandomUtils;
 import redis.clients.jedis.Jedis;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class RedisLockTest {

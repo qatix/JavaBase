@@ -32,7 +32,7 @@ class Waiter implements Runnable {
     }
 }
 
-class Decrementer implements Runnable{
+class Decrementer implements Runnable {
     CountDownLatch latch;
 
     public Decrementer(CountDownLatch latch) {
@@ -40,7 +40,7 @@ class Decrementer implements Runnable{
     }
 
     public void run() {
-        try{
+        try {
             Thread.sleep(1000);
             this.latch.countDown();
             System.out.println("countdown1");
@@ -52,7 +52,7 @@ class Decrementer implements Runnable{
             Thread.sleep(1000);
             this.latch.countDown();
             System.out.println("countdown3");
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

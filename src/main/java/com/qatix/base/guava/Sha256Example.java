@@ -15,6 +15,7 @@ public class Sha256Example {
 
     /**
      * use guava
+     *
      * @param fileName
      * @return
      */
@@ -34,6 +35,7 @@ public class Sha256Example {
 
     /**
      * use common codec
+     *
      * @param fileName
      * @return
      */

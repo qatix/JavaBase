@@ -7,13 +7,13 @@ public class SemaphoreExample {
 
         int N = 5;
         Semaphore semaphore = new Semaphore(3);
-        for (int i=0;i<N;i++){
-            new Worker(i+1,semaphore).start();
+        for (int i = 0; i < N; i++) {
+            new Worker(i + 1, semaphore).start();
         }
 
     }
 
-    static class Worker extends Thread{
+    static class Worker extends Thread {
         private int num;
         private Semaphore semaphore;
 

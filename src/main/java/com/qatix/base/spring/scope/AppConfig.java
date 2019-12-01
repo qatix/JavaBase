@@ -26,6 +26,7 @@ public class AppConfig {
 
     /**
      * 默认是SINGLETON
+     *
      * @return
      */
     @Bean("productService2")

@@ -13,16 +13,16 @@ public class HashMapExample {
     public static void main(String[] args) {
         System.out.println("HashMap");
         //默认capacity = 16
-        Map<String,String> map = new HashMap<>();
-        map.put("a3","11");
-        map.put("a2","22");
-        map.put("b1","33");
-        map.put("c1","44");
-        map.put("nullvalue",null);
-        map.put(null,"nullkey");
-        map.put(null,null);
+        Map<String, String> map = new HashMap<>();
+        map.put("a3", "11");
+        map.put("a2", "22");
+        map.put("b1", "33");
+        map.put("c1", "44");
+        map.put("nullvalue", null);
+        map.put(null, "nullkey");
+        map.put(null, null);
 
-        for (Map.Entry<String,String> entry:map.entrySet()){
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "|" + entry.getValue());
         }
 
@@ -32,29 +32,29 @@ public class HashMapExample {
         System.out.println("LinkedHashMap");
         //内部维持了一个双向链表,可以保持顺序
         map = new LinkedHashMap<>();//能保留插入的顺序
-        map.put("a3","11");
-        map.put("a2","22");
-        map.put("b1","33");
-        map.put("c1","44");
-        map.put("nullvalue",null);
-        map.put(null,"nullkey");
-        map.put(null,null);
+        map.put("a3", "11");
+        map.put("a2", "22");
+        map.put("b1", "33");
+        map.put("c1", "44");
+        map.put("nullvalue", null);
+        map.put(null, "nullkey");
+        map.put(null, null);
 
-        for (Map.Entry<String,String> entry:map.entrySet()){
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "|" + entry.getValue());
         }
 
         System.out.println("HashTable");
         map = new Hashtable<>();//能保留插入的顺序
-        map.put("a3","11");
-        map.put("a2","22");
-        map.put("b1","33");
-        map.put("c1","44");
+        map.put("a3", "11");
+        map.put("a2", "22");
+        map.put("b1", "33");
+        map.put("c1", "44");
 //        map.put("nullvalue",null);  不允许，NPE
 //        map.put(null,"nullkey"); 不允许，NPE
 //        map.put(null,null); 不允许，NPE
 
-        for (Map.Entry<String,String> entry:map.entrySet()){
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "|" + entry.getValue());
         }
     }

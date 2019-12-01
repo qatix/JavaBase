@@ -6,7 +6,7 @@ package com.qatix.base.lang.safety;
  */
 public class DefaultP {
     public static void main(String[] args) {
-        Student student = new Student("zhang",23,"Beijing");
+        Student student = new Student("zhang", 23, "Beijing");
         System.out.println(student.name);
         System.out.println(student.address);
         System.out.println(student.getAge());

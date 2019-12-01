@@ -9,10 +9,10 @@ public class DelayQueueTest {
     public static void main(String[] args) throws InterruptedException {
 
         DelayQueue queue = new DelayQueue();
-        Delayed e1 = new DelayedElement(3,"1sec-3");
-        Delayed e2 = new DelayedElement(2,"2sec-2");
-        Delayed e3 = new DelayedElement(5,"3sec-5");
-        Delayed e4 = new DelayedElement(1,"4sec-1");
+        Delayed e1 = new DelayedElement(3, "1sec-3");
+        Delayed e2 = new DelayedElement(2, "2sec-2");
+        Delayed e3 = new DelayedElement(5, "3sec-5");
+        Delayed e4 = new DelayedElement(1, "4sec-1");
 
         queue.put(e1);
         queue.put(e2);
@@ -20,7 +20,7 @@ public class DelayQueueTest {
         queue.put(e4);
         System.out.println("put done");
 
-        while (true){
+        while (true) {
             System.out.println("start to get");
             System.out.println(queue.take());
         }
@@ -41,7 +41,7 @@ class DelayedElement implements Delayed {
     }
 
     public int compareTo(Delayed o) {
-        DelayedElement o1 = (DelayedElement)o;
+        DelayedElement o1 = (DelayedElement) o;
         if (this.delayTime > o1.delayTime) {
             return 1;
         } else if (this.delayTime < o1.delayTime) {

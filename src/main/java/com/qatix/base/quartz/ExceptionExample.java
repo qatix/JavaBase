@@ -30,7 +30,7 @@ public class ExceptionExample {
                 .build();
 
         //finish time
-        Date ft =  scheduler.scheduleJob(job1, trigger);
+        Date ft = scheduler.scheduleJob(job1, trigger);
 
         //job2 异常后会取消，后续不会再继续运行
         JobDetail job2 = JobBuilder.newJob(BadJob2.class).withIdentity("badJob2", "group1").build();

@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * P6Spy is a framework that enables us to log all sql statements and parameters for java application.

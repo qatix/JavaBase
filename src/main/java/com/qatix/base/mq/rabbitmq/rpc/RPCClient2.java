@@ -36,7 +36,7 @@ public class RPCClient2 {
         channel.basicPublish("", requestQueueName, props, message.getBytes("UTF-8"));
 
         final BlockingQueue<String> response = new ArrayBlockingQueue<String>(1);
-        channel.basicConsume(replyQueueName, true, new RPCConsumer(channel,corrId,response));
+        channel.basicConsume(replyQueueName, true, new RPCConsumer(channel, corrId, response));
         return response.take();
     }
 
@@ -45,7 +45,7 @@ public class RPCClient2 {
     }
 }
 
-class RPCConsumer extends DefaultConsumer{
+class RPCConsumer extends DefaultConsumer {
 
     private String corrId;
     private BlockingQueue<String> response;

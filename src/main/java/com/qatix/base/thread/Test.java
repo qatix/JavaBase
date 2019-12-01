@@ -5,13 +5,13 @@ public class Test {
     public static void main(String[] args) {
         MyThreadPool myThreadPool = new MyThreadPool(1);
 
-        for (int i=0;i<20;i++){
-            myThreadPool.execute(new Task("task-"+i));
+        for (int i = 0; i < 20; i++) {
+            myThreadPool.execute(new Task("task-" + i));
         }
     }
 }
 
-class Task implements Runnable{
+class Task implements Runnable {
     private String name;
 
     public Task(String name) {
@@ -26,7 +26,7 @@ class Task implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(this.toString() + " " +  Thread.currentThread().getName() + " is done");
+        System.out.println(this.toString() + " " + Thread.currentThread().getName() + " is done");
     }
 
     @Override

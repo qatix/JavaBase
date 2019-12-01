@@ -6,11 +6,13 @@ package com.qatix.base.lang.statiz;
  */
 public class InnerStaticCode {
     private static String str = "123";
+
     static {
         System.out.println(str);
         str = "456";
         System.out.println(str);
     }
+
     public static void main(String[] args) {
         System.out.println("main:");
         System.out.println(str);

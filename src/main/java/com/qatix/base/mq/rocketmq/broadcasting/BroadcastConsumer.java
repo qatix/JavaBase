@@ -11,14 +11,14 @@ import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import java.util.List;
 
 public class BroadcastConsumer {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("broad-consume-group");
         consumer.setNamesrvAddr("localhost:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
         consumer.setMessageModel(MessageModel.BROADCASTING);
 
-        consumer.subscribe("TopicTest","TagA || TagC || TagD");
+        consumer.subscribe("TopicTest", "TagA || TagC || TagD");
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
                 System.out.println(Thread.currentThread().getName() + " Receive New Message:" + msgs);

@@ -5,7 +5,12 @@ package com.qatix.base.lang.string;
  * @Date: 2018/11/29 5:39 PM
  */
 public class ToStringExample {
-    private static class Student{
+    public static void main(String[] args) {
+        Student student = new Student("Zhang", "CN", 21);
+        System.out.println(student.toString());
+    }
+
+    private static class Student {
         private String name;
         private String country;
         private int age;
@@ -36,10 +41,5 @@ public class ToStringExample {
                     ", age=" + age +
                     '}';
         }
-    }
-
-    public static void main(String[] args) {
-        Student student = new Student("Zhang","CN",21);
-        System.out.println(student.toString());
     }
 }

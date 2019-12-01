@@ -19,13 +19,13 @@ public class KeysExample {
         System.out.println("total-count:" + keys.count());
 
         Iterable<String> allKeys = keys.getKeys();
-        for (String key: allKeys) {
+        for (String key : allKeys) {
             System.out.println(key);
         }
 
-        Iterable<String> foundedKeys = keys.getKeysByPattern("store*",5);
-        for (String key: foundedKeys) {
-            System.out.println("by-patern:" +  key);
+        Iterable<String> foundedKeys = keys.getKeysByPattern("store*", 5);
+        for (String key : foundedKeys) {
+            System.out.println("by-patern:" + key);
         }
     }
 }

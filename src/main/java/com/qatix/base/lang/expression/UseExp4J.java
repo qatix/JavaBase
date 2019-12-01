@@ -27,27 +27,27 @@ public class UseExp4J {
 
         //同步计算
         Expression e2 = new ExpressionBuilder("x+2*y-z*z")
-                .variables("x","y","z")
+                .variables("x", "y", "z")
                 .build()
-                .setVariable("x",10)
-                .setVariable("y",12)
-                .setVariable("z",3);
+                .setVariable("x", 10)
+                .setVariable("y", 12)
+                .setVariable("z", 3);
         System.out.println(e2.evaluate());
 
 
         //异步计算
         Expression e3 = new ExpressionBuilder("sqrt(x) + y*y")
-                .variables("x","y")
+                .variables("x", "y")
                 .build()
-                .setVariable("x",10)
-                .setVariable("y",5);
+                .setVariable("x", 10)
+                .setVariable("y", 5);
         ExecutorService es = Executors.newFixedThreadPool(2);
-        Future<Double> future =  e3.evaluateAsync(es);
+        Future<Double> future = e3.evaluateAsync(es);
         System.out.println(future.get());
 
 //        Using implicit muliplication
         double result2 = new ExpressionBuilder("2cos(xy)")
-                .variables("x","y")
+                .variables("x", "y")
                 .build()
                 .setVariable("x", 0.5d)
                 .setVariable("y", 0.25d)
@@ -57,16 +57,16 @@ public class UseExp4J {
 
 //        Use constants in an expression
         String expr = "pi+π+e+φ";
-        double expected = 2*Math.PI + Math.E + 1.61803398874d;
+        double expected = 2 * Math.PI + Math.E + 1.61803398874d;
         Expression e4 = new ExpressionBuilder(expr).build();
-        Assert.assertEquals(expected, e4.evaluate(),0d);
+        Assert.assertEquals(expected, e4.evaluate(), 0d);
         System.out.println("equal:" + expr + ":" + result2);
 
 //        Use scientific notation in an expression
         String expr2 = "7.2973525698e-7";
         double expected2 = Double.parseDouble(expr2);
         Expression e5 = new ExpressionBuilder(expr).build();
-        Assert.assertEquals(expected2, e5.evaluate(),0d);
+        Assert.assertEquals(expected2, e5.evaluate(), 0d);
         System.out.println("equal:" + expr2 + ":" + result2);//not equal
     }
 }

@@ -6,8 +6,6 @@ import com.google.common.hash.Funnel;
 import com.google.common.hash.PrimitiveSink;
 import org.apache.commons.lang3.RandomUtils;
 
-import java.nio.charset.Charset;
-
 /**
  * @Author: Logan.Tang
  * @Date: 2018/10/30 11:35 AM
@@ -19,19 +17,19 @@ public class BloomFilterExample {
         Funnel<String> nameFunnel = new Funnel<String>() {
             @Override
             public void funnel(String from, PrimitiveSink into) {
-                    into.putString(from, Charsets.UTF_8);
+                into.putString(from, Charsets.UTF_8);
             }
         };
 
         //1%的错误率，500个可以错5个
-        BloomFilter<String> bloomFilter = BloomFilter.create(nameFunnel,500,0.01);
+        BloomFilter<String> bloomFilter = BloomFilter.create(nameFunnel, 500, 0.01);
         int MAX_COUNT = 1000;
         String[] userArr = new String[15];
-        for (int  i=0;i<MAX_COUNT;i++){
-            String tuser = String.format("user-%d", RandomUtils.nextInt(0,800));
+        for (int i = 0; i < MAX_COUNT; i++) {
+            String tuser = String.format("user-%d", RandomUtils.nextInt(0, 800));
             bloomFilter.put(tuser);
-            if(i%100 == 99 ){
-                userArr[i/100] = tuser;
+            if (i % 100 == 99) {
+                userArr[i / 100] = tuser;
             }
         }
 
@@ -40,10 +38,10 @@ public class BloomFilterExample {
         userArr[12] = "user-not-exist3";
         userArr[13] = "user-not-exist4";
         userArr[14] = "user-not-exist5";
-        for (String user:userArr){
-            if(bloomFilter.mightContain(user)){
+        for (String user : userArr) {
+            if (bloomFilter.mightContain(user)) {
                 System.out.println("contain:" + user);
-            }else{
+            } else {
                 System.out.println("not-contain:" + user);
             }
         }

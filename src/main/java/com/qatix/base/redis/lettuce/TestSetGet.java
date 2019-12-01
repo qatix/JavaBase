@@ -8,15 +8,15 @@ import io.lettuce.core.api.StatefulRedisConnection;
  */
 public class TestSetGet {
     public static void main(String[] args) {
-        LogRdsConfig config = new LogRdsConfig("localhost",6379,"",10,5,2,500,5000);
+        LogRdsConfig config = new LogRdsConfig("localhost", 6379, "", 10, 5, 2, 500, 5000);
         System.out.println(config.toString());
 
         LogRdsPool pool = new LogRdsPool(config);
 
         try {
             StatefulRedisConnection<String, String> connection = pool.borrowObject();
-            connection.sync().set("lettuce-key1","lettuce-val-123-sync");
-            connection.async().set("lettuce-key2","lettuce-val-456-async");
+            connection.sync().set("lettuce-key1", "lettuce-val-123-sync");
+            connection.async().set("lettuce-key2", "lettuce-val-456-async");
             System.out.println("set ok");
 
             System.out.println("lettuce-key1:");

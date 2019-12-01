@@ -6,24 +6,24 @@ package com.qatix.base.jvm.oom;
  * java.lang.OutOfMemoryError:unable to create new native thread
  */
 public class VMStackOOM {
-    private void dontStop(){
+    public static void main(String[] args) {
+        VMStackOOM vmStackOOM = new VMStackOOM();
+        vmStackOOM.stackLeakThread();
+    }
+
+    private void dontStop() {
         String threadName = Thread.currentThread().getName();
         int counter = 0;
-        while (true){
+        while (true) {
             counter++;
 //            System.out.printf("%s counter:%d%n",threadName,counter);
         }
     }
 
-    private void stackLeakThread(){
-        while (true){
+    private void stackLeakThread() {
+        while (true) {
             Thread thread = new Thread(this::dontStop);
             thread.start();
         }
-    }
-
-    public static void main(String[] args) {
-        VMStackOOM vmStackOOM = new VMStackOOM();
-        vmStackOOM.stackLeakThread();
     }
 }

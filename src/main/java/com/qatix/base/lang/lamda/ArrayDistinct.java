@@ -13,14 +13,6 @@ import java.util.stream.Collectors;
  */
 public class ArrayDistinct {
 
-    @Data
-    @AllArgsConstructor
-    private static class App {
-        String name;
-        String channel;
-        int viewCount;
-    }
-
     public static void main(String[] args) {
 
         List<App> apps = new ArrayList<>();
@@ -31,5 +23,13 @@ public class ArrayDistinct {
 
         List<String> channels = apps.stream().map(App::getChannel).distinct().collect(Collectors.toList());
         System.out.println(channels.toString());
+    }
+
+    @Data
+    @AllArgsConstructor
+    private static class App {
+        String name;
+        String channel;
+        int viewCount;
     }
 }

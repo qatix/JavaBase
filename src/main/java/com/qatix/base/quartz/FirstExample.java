@@ -20,14 +20,14 @@ public class FirstExample {
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Scheduler scheduler = schedulerFactory.getScheduler();
 
-        JobDetail jobDetail = JobBuilder.newJob(HelloJob.class).withIdentity("job1","group1").build();
+        JobDetail jobDetail = JobBuilder.newJob(HelloJob.class).withIdentity("job1", "group1").build();
 
         Date runTime = new Date(System.currentTimeMillis() + 5000);
 
-        Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1","group1")
+        Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
                 .startAt(runTime).build();
 
-        scheduler.scheduleJob(jobDetail,trigger);
+        scheduler.scheduleJob(jobDetail, trigger);
 
         log.info("job schedule at " + new Date());
         scheduler.start();

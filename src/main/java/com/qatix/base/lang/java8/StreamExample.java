@@ -21,34 +21,34 @@ public class StreamExample {
         stringCollection.add("ddd1");
 
         System.out.println("output a:");
-        stringCollection.stream().filter((s)->s.startsWith("a")).forEach(System.out::println);
+        stringCollection.stream().filter((s) -> s.startsWith("a")).forEach(System.out::println);
 
         System.out.println("sort b:");
-        stringCollection.stream().sorted().filter((s)->s.startsWith("b")).forEach(System.out::println);
+        stringCollection.stream().sorted().filter((s) -> s.startsWith("b")).forEach(System.out::println);
 
         System.out.println("self define sort b:");
         stringCollection.stream()
                 .map(String::toUpperCase)
-                .sorted((a,b)->b.compareTo(a))
-                .filter((s)->s.startsWith("B"))
+                .sorted((a, b) -> b.compareTo(a))
+                .filter((s) -> s.startsWith("B"))
                 .forEach(System.out::println);
 
 
         boolean anyStartsWithA = stringCollection.stream()
-                .anyMatch((s)->s.startsWith("a"));
+                .anyMatch((s) -> s.startsWith("a"));
         System.out.println(anyStartsWithA);
 
         boolean allStartsWithA = stringCollection.stream()
-                .allMatch((s)->s.startsWith("a"));
+                .allMatch((s) -> s.startsWith("a"));
         System.out.println(allStartsWithA);
 
         boolean noneStartsWithZ = stringCollection.stream()
-                .noneMatch((s)->s.startsWith("z"));
+                .noneMatch((s) -> s.startsWith("z"));
         System.out.println(noneStartsWithZ);
 
 
         long startsWithBCount = stringCollection.stream()
-                .filter((s)->s.startsWith("b"))
+                .filter((s) -> s.startsWith("b"))
                 .count();
         System.out.println(startsWithBCount);
 
@@ -56,7 +56,7 @@ public class StreamExample {
         //reduce
         Optional<String> reduced = stringCollection.stream()
                 .sorted()
-                .reduce((s1,s2)->s1 + "#" + s2);
+                .reduce((s1, s2) -> s1 + "#" + s2);
         reduced.ifPresent(System.out::println);
     }
 }

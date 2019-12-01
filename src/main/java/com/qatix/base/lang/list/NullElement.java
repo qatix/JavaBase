@@ -14,7 +14,7 @@ public class NullElement {
         list.add(100L);
         System.out.println("size:" + list.size());
         long sum = 0;
-        for (int i=0;i<list.size();i++){
+        for (int i = 0; i < list.size(); i++) {
             sum += list.get(i); //空指针一次
             //Exception in thread "main" java.lang.NullPointerException
         }

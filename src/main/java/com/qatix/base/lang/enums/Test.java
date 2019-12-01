@@ -8,17 +8,17 @@ public class Test {
         System.out.println(ce);
         System.out.println(ce.name());
 
-        for (ColorEnum c: ColorEnum.values()
-             ) {
+        for (ColorEnum c : ColorEnum.values()
+                ) {
             System.out.println(c);
         }
 
 
-        String typeName =  "f5";
+        String typeName = "f5";
         TypeEnum typeEnum = TypeEnum.fromName(typeName);
-        if(TypeEnum.BALANCE == typeEnum){
+        if (TypeEnum.BALANCE == typeEnum) {
             System.out.println("equal");
-        }else{
+        } else {
             System.out.println("not equal");
         }
 

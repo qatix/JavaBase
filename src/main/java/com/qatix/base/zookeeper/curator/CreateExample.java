@@ -4,7 +4,6 @@ import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.apache.curator.utils.ZKPaths;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
@@ -45,19 +44,19 @@ public class CreateExample {
         }
 
         path = "/qatix/no_exsit/p/c/a";
-        res = client.create().creatingParentsIfNeeded().forPath(path,"create-parent-test".getBytes());
+        res = client.create().creatingParentsIfNeeded().forPath(path, "create-parent-test".getBytes());
         System.out.println(res);
 
         path = "/qatix/no_exsit/p/c/b";
-        res = client.create().withMode(CreateMode.EPHEMERAL).forPath(path,"create-parent-test".getBytes());
+        res = client.create().withMode(CreateMode.EPHEMERAL).forPath(path, "create-parent-test".getBytes());
         System.out.println(res);
 
         path = "/qatix/no_exsit/p/c/c";
-        res = client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path,"create-parent-test".getBytes());
+        res = client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path, "create-parent-test".getBytes());
         System.out.println(res);
 
         path = "/qatix/no_exsit/p/c/d";
-        res = client.create().withMode(CreateMode.PERSISTENT).forPath(path,"create-parent-test".getBytes());
+        res = client.create().withMode(CreateMode.PERSISTENT).forPath(path, "create-parent-test".getBytes());
         System.out.println(res);
 
     }

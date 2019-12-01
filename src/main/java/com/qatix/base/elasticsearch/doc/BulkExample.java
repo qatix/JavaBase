@@ -24,11 +24,12 @@ import java.io.IOException;
 
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-bulk.html
+ *
  * @Author: Logan.Tang
  * @Date: 2018/11/1 6:26 PM
  */
 public class BulkExample {
-    public static void main(String[] args) throws IOException,InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(
                         new HttpHost(Config.ES_HOST, Config.ES_PORT, Config.ES_SCHEMA)
@@ -37,9 +38,9 @@ public class BulkExample {
         BulkRequest request = new BulkRequest();
         request.add(new DeleteRequest("posts", "doc", "3"));
         request.add(new UpdateRequest("posts", "doc", "2")
-                .doc(XContentType.JSON,"other", "test"));
+                .doc(XContentType.JSON, "other", "test"));
         request.add(new IndexRequest("posts", "doc", "6")
-                .source(XContentType.JSON,"field", "baz"));
+                .source(XContentType.JSON, "field", "baz"));
 
         request.timeout("2m");
         request.setRefreshPolicy(WriteRequest.RefreshPolicy.WAIT_UNTIL);
@@ -56,7 +57,7 @@ public class BulkExample {
                     //in case of failure
                     if (bulkItemResponse.isFailed()) {
                         BulkItemResponse.Failure failure = bulkItemResponse.getFailure();
-                        System.err.println("failure:"  + failure.getMessage());
+                        System.err.println("failure:" + failure.getMessage());
                     }
 
                     if (bulkItemResponse.getOpType() == DocWriteRequest.OpType.INDEX

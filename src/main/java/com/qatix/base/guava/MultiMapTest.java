@@ -29,8 +29,8 @@ public class MultiMapTest {
 
 
         BiMap<String, Integer> userIdMap = HashBiMap.create();
-        userIdMap.put("aaa",111);
-        userIdMap.put("bbb",332);
+        userIdMap.put("aaa", 111);
+        userIdMap.put("bbb", 332);
         String userForId = userIdMap.inverse().get(111);
         System.out.println(userForId);
     }

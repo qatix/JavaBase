@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ImportResource;
 })
 public class ConfigC {
     @Bean
-    public BeanC getBeanC(){
+    public BeanC getBeanC() {
         return new BeanC();
     }
 }

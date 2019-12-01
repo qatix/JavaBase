@@ -85,6 +85,7 @@ public class BSearch {
 
     /**
      * 返回找到的第一个结果，不检查重复
+     *
      * @param s
      * @param k
      * @return
@@ -121,18 +122,18 @@ public class BSearch {
         System.out.println(s.length);
         System.out.println(Arrays.toString(s));
 
-        System.out.println(bearch(s,3));
-        System.out.println(bearch(s,100));
-        System.out.println(bearch(s,11));
-        System.out.println(bearch(s,2));
-        System.out.println(bearch(null,3));
+        System.out.println(bearch(s, 3));
+        System.out.println(bearch(s, 100));
+        System.out.println(bearch(s, 11));
+        System.out.println(bearch(s, 2));
+        System.out.println(bearch(null, 3));
 
         System.out.println("bsearch2:");
-        System.out.println(bearch2(s,3));
-        System.out.println(bearch2(s,2));
+        System.out.println(bearch2(s, 3));
+        System.out.println(bearch2(s, 2));
 
         System.out.println("bsearch3:");
-        System.out.println(bearch3(s,3));
+        System.out.println(bearch3(s, 3));
 
         int[] s2 = new int[]{2};
         System.out.println(bearch(s2, 2));
@@ -142,7 +143,6 @@ public class BSearch {
         int[] s3 = new int[]{2, 3};
         System.out.println(bearch(s3, 2));
         System.out.println(bearch2(s3, 2));
-
 
 
     }

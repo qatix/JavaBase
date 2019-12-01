@@ -1,9 +1,7 @@
 package com.qatix.base.log.lombok;
 
-import com.jcraft.jsch.jce.SHA1;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
 
 /**
  * @Author: Logan.Tang
@@ -11,24 +9,24 @@ import lombok.NonNull;
  */
 public class NonNullExample {
 
-    @Data
-    @AllArgsConstructor
-    static class Person{
-        private String name;
-        private String country;
-    }
-
-    private static String getPersonKey(Person person){
-        String key = person.name+"|" + person.getCountry();
+    private static String getPersonKey(Person person) {
+        String key = person.name + "|" + person.getCountry();
         return key;
     }
 
     public static void main(String[] args) {
-        Person person1 = new Person("zhang","cn");
+        Person person1 = new Person("zhang", "cn");
         System.out.println(getPersonKey(person1));
 
         Person person2 = null;
         System.out.println(getPersonKey(person2));
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class Person {
+        private String name;
+        private String country;
     }
 }
 

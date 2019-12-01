@@ -8,12 +8,19 @@ public class QuickSort {
         this.s = s;
     }
 
+    public static void main(String[] args) {
+        int arr[] = {1, 1, 2, 15, 2, 79, 44, 3, 6, 7, 65, 888, 1121, 4, 31, 88, 60};
+        QuickSort qs = new QuickSort(arr);
+        qs.print();
+        qs.sort(0, arr.length - 1);
+        qs.print();
+    }
+
     private void swap(int i, int j) {
         int tmp = s[i];
         s[i] = s[j];
         s[j] = tmp;
     }
-
 
     public void sort(int left, int right) {
         if (left >= right) {
@@ -39,7 +46,7 @@ public class QuickSort {
             }
         }
 
-        System.out.println( i  + "=" + s[i]);
+        System.out.println(i + "=" + s[i]);
         s[left] = s[i];
         s[i] = x;
         this.sort(left, i - 1);
@@ -51,13 +58,5 @@ public class QuickSort {
             System.out.printf("%d ", i);
         }
         System.out.println("\n");
-    }
-
-    public static void main(String[] args) {
-        int arr[] = {1,1,2,15, 2, 79,44, 3, 6, 7, 65, 888, 1121, 4, 31, 88, 60};
-        QuickSort qs = new QuickSort(arr);
-        qs.print();
-        qs.sort(0, arr.length - 1);
-        qs.print();
     }
 }

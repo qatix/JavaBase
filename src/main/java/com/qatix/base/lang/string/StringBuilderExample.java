@@ -25,7 +25,7 @@ public class StringBuilderExample {
         sb.append("iop");
         System.out.println(sb.toString());
 
-        System.out.println( "cap:" + sb.capacity());
+        System.out.println("cap:" + sb.capacity());
 
         System.out.println("hashCode:");
         System.out.println(sb.hashCode());

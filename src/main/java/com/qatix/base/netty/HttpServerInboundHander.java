@@ -19,9 +19,9 @@ public class HttpServerInboundHander extends ChannelInboundHandlerAdapter {
             System.out.println("Uri:" + uri);
         }
 
-        if(msg instanceof HttpContent){
-            HttpContent content = (HttpContent)msg;
-            ByteBuf buf  = content.content();
+        if (msg instanceof HttpContent) {
+            HttpContent content = (HttpContent) msg;
+            ByteBuf buf = content.content();
             System.out.println(buf.toString(CharsetUtil.UTF_8));
             buf.release();
 
@@ -30,7 +30,7 @@ public class HttpServerInboundHander extends ChannelInboundHandlerAdapter {
                     HttpResponseStatus.OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
             response.headers().set(HttpHeaders.Names.CONTENT_TYPE,
                     "text/plain");
-            response.headers().set(HttpHeaders.Names.CONTENT_LENGTH,response.content().readableBytes());
+            response.headers().set(HttpHeaders.Names.CONTENT_LENGTH, response.content().readableBytes());
 //            if(HttpHeaders.isKeepAlive(request)){
 //
 //            }

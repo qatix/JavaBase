@@ -17,19 +17,19 @@ public class AsyncProducer {
         producer.start();
         producer.setRetryTimesWhenSendAsyncFailed(0);
 
-        for (int i=0;i<10;i++){
-            final  int index = i;
+        for (int i = 0; i < 10; i++) {
+            final int index = i;
             Message message = new Message("TopicTest",
                     "TagA",
                     "OrderID188",
                     "HelloWorld".getBytes(RemotingHelper.DEFAULT_CHARSET));
             producer.send(message, new SendCallback() {
                 public void onSuccess(SendResult sendResult) {
-                    System.out.printf("%-10d OK %s %n",index,sendResult.getMsgId());
+                    System.out.printf("%-10d OK %s %n", index, sendResult.getMsgId());
                 }
 
                 public void onException(Throwable e) {
-                    System.out.printf("%-10d Exception %s %n",index,e);
+                    System.out.printf("%-10d Exception %s %n", index, e);
                     e.printStackTrace();
                 }
             });
@@ -37,7 +37,7 @@ public class AsyncProducer {
 
         long start = System.currentTimeMillis();
         long N = 100000;
-        for (int i=0;i< N ;i++){
+        for (int i = 0; i < N; i++) {
             Message msg = new Message(
                     "TopicTest3",
                     "Tag",
@@ -54,12 +54,12 @@ public class AsyncProducer {
                 }
             });
 //            System.out.printf("%s%n",sendResult);
-            if(i%10000==0){
+            if (i % 10000 == 0) {
                 System.out.println(" >> " + i);
             }
         }
         long end = System.currentTimeMillis();
-        long tps = N/(end-start)*1000;
+        long tps = N / (end - start) * 1000;
         System.out.println("tps:" + tps); //tps:19000
 
         producer.shutdown();

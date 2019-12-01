@@ -5,9 +5,9 @@ package com.qatix.base.lang.safety;
  * @Date: 2018/12/1 9:47 AM
  */
 public class Student {
+    protected String address;
     String name; //default protected
     private int age;
-    protected  String address;
 
     public Student(String name, int age, String address) {
         this.name = name;

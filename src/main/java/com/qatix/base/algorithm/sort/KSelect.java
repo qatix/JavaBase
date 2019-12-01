@@ -8,12 +8,19 @@ public class KSelect {
         this.s = s;
     }
 
+    public static void main(String[] args) {
+        int arr[] = {1, 1, 2, 15, 2, 79, 44, 3, 6, 7, 65, 888, 1121, 4, 31, 88, 60};
+        KSelect qs = new KSelect(arr);
+        qs.print();
+        int r = qs.find(5, 0, arr.length - 1);
+        System.out.println(r);
+    }
+
     private void swap(int i, int j) {
         int tmp = s[i];
         s[i] = s[j];
         s[j] = tmp;
     }
-
 
     public int find(int k, int left, int right) {
         System.out.println("k=" + k + ",left=" + left + ",right=" + right);
@@ -48,7 +55,7 @@ public class KSelect {
         }
 
         print();
-        if (i  - left >  k) {
+        if (i - left > k) {
             return find(k, left, i - 1);
         } else {
             return find(k - (i - left) - 1, i + 1, right);
@@ -60,13 +67,5 @@ public class KSelect {
             System.out.printf("%d ", i);
         }
         System.out.println("\n");
-    }
-
-    public static void main(String[] args) {
-        int arr[] = {1, 1, 2, 15, 2, 79, 44, 3, 6, 7, 65, 888, 1121, 4, 31, 88, 60};
-        KSelect qs = new KSelect(arr);
-        qs.print();
-        int r = qs.find(5, 0, arr.length - 1);
-        System.out.println(r);
     }
 }

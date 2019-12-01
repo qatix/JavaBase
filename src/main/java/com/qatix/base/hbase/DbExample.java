@@ -6,6 +6,14 @@ public class DbExample {
 
     private static Connection conn;
 
+    public static void main(String args[]) {
+        DbExample eg = new DbExample();
+        eg.init();
+        eg.doTask();
+        eg.doTask2();
+        eg.close();
+    }
+
     public void init() {
         // 不同的数据库有不同的驱动
         String url = "jdbc:mysql://localhost:3306/erp";
@@ -29,7 +37,7 @@ public class DbExample {
             String columnFamily = "s";
 
             HBaseCilent eg = new HBaseCilent();
-            eg.createTable(tableName,columnFamily);
+            eg.createTable(tableName, columnFamily);
 
             int count = 0;
 
@@ -41,18 +49,18 @@ public class DbExample {
                 String no = rs.getString("no");
                 String quantity = rs.getString("quantity");
                 String salePrice = rs.getString("sale_price");
-                System.out.println(name + " | " + no +" | " + quantity + " | " + salePrice);
+                System.out.println(name + " | " + no + " | " + quantity + " | " + salePrice);
 
-                 if (null == no) {
+                if (null == no) {
                     continue;
                 }
-                eg.putRow(tableName,no,columnFamily,"name",name);
-                eg.putRow(tableName,no,columnFamily,"qty",quantity);
-                eg.putRow(tableName,no,columnFamily,"price",salePrice);
-                eg.putRow(tableName,no,columnFamily,"bt",rs.getString("business_type"));
-                eg.putRow(tableName,no,columnFamily,"deduct",rs.getString("deduction"));
-                eg.putRow(tableName,no,columnFamily,"cost",rs.getString("stock_cost"));
-                eg.putRow(tableName,no,columnFamily,"date",rs.getString("bill_date"));
+                eg.putRow(tableName, no, columnFamily, "name", name);
+                eg.putRow(tableName, no, columnFamily, "qty", quantity);
+                eg.putRow(tableName, no, columnFamily, "price", salePrice);
+                eg.putRow(tableName, no, columnFamily, "bt", rs.getString("business_type"));
+                eg.putRow(tableName, no, columnFamily, "deduct", rs.getString("deduction"));
+                eg.putRow(tableName, no, columnFamily, "cost", rs.getString("stock_cost"));
+                eg.putRow(tableName, no, columnFamily, "date", rs.getString("bill_date"));
 
                 count += 3;
             }
@@ -68,7 +76,7 @@ public class DbExample {
             String columnFamily = "s";
 
             HBaseCilent eg = new HBaseCilent();
-            eg.createTable(tableName,columnFamily);
+            eg.createTable(tableName, columnFamily);
 
             int count = 0;
 
@@ -77,12 +85,12 @@ public class DbExample {
             ResultSet rs = stmt.executeQuery(sql); //数据查询操作
             while (rs.next()) { //移动指针同时判断是否还有数据行
                 String id = rs.getString("id");
-                eg.putRow(tableName,"id_"+id,columnFamily,"name",rs.getString("name"));
-                eg.putRow(tableName,"id_"+id,columnFamily,"mobile",rs.getString("mobile"));
-                eg.putRow(tableName,"id_"+id,columnFamily,"balance",rs.getString("balance"));
-                eg.putRow(tableName,"id_"+id,columnFamily,"credits",rs.getString("credits"));
-                if(rs.getString("card_no").length() > 0){
-                    eg.putRow(tableName,"id_"+id,columnFamily,"card_no",rs.getString("card_no"));
+                eg.putRow(tableName, "id_" + id, columnFamily, "name", rs.getString("name"));
+                eg.putRow(tableName, "id_" + id, columnFamily, "mobile", rs.getString("mobile"));
+                eg.putRow(tableName, "id_" + id, columnFamily, "balance", rs.getString("balance"));
+                eg.putRow(tableName, "id_" + id, columnFamily, "credits", rs.getString("credits"));
+                if (rs.getString("card_no").length() > 0) {
+                    eg.putRow(tableName, "id_" + id, columnFamily, "card_no", rs.getString("card_no"));
                 }
 
                 count += 3;
@@ -99,13 +107,5 @@ public class DbExample {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String args[]) {
-        DbExample eg = new DbExample();
-        eg.init();
-        eg.doTask();
-        eg.doTask2();
-        eg.close();
     }
 }

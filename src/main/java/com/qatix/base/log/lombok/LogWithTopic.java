@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * https://projectlombok.org/features/log
+ *
  * @Author: Logan.Tang
  * @Date: 2018/10/29 5:21 PM
  */

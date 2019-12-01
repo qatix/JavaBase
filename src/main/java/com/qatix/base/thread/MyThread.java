@@ -2,7 +2,7 @@ package com.qatix.base.thread;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class MyThread  extends Thread {
+public class MyThread extends Thread {
 
     private Runnable task;
     private ArrayBlockingQueue<Runnable> queue;
@@ -14,13 +14,13 @@ public class MyThread  extends Thread {
 
     @Override
     public void run() {
-        while (true){
-            if(task != null){
+        while (true) {
+            if (task != null) {
                 task.run();
                 task = null;
-            }else{
+            } else {
                 task = this.queue.poll();
-                if(task != null){
+                if (task != null) {
                     System.out.println("get task from queue:" + task);
                     task.run();
                     task = null;

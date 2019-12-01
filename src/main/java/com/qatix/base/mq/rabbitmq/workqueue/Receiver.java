@@ -13,28 +13,28 @@ public class Receiver {
         Connection connection = MQHelper.getConnection();
         final Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         channel.basicQos(1);// accept only one unack-ed message at a time (see below)
-         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+        System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-        Consumer consumer = new DefaultConsumer(channel){
+        Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
 //                super.handleDelivery(consumerTag, envelope, properties, body);
-                String message = new String(body,"UTF-8");
+                String message = new String(body, "UTF-8");
                 System.out.println(" [x] Received '" + message + "'");
                 doWork(message);
                 System.out.println(" [x] Done");
-                channel.basicAck(envelope.getDeliveryTag(),false);
+                channel.basicAck(envelope.getDeliveryTag(), false);
             }
         };
         boolean autoAck = false;
-        channel.basicConsume(QUEUE_NAME,autoAck,consumer);
+        channel.basicConsume(QUEUE_NAME, autoAck, consumer);
     }
 
-    private static void doWork(String task){
-        for (char ch: task.toCharArray()) {
-            if(ch == 'l'){
+    private static void doWork(String task) {
+        for (char ch : task.toCharArray()) {
+            if (ch == 'l') {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

@@ -1,9 +1,11 @@
 package com.qatix.base.guava.cache;
 
-import com.google.common.cache.*;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.cache.RemovalListener;
 import lombok.extern.java.Log;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -20,15 +22,15 @@ public class Example {
                 .expireAfterWrite(3, TimeUnit.SECONDS)
                 .removalListener((RemovalListener<String, String>) notification -> {
                     log.info("removal");
-                    log.info(">>"+ notification.getKey() + "|" + notification.getValue());
-                    log.info(">>>"+notification.toString());
+                    log.info(">>" + notification.getKey() + "|" + notification.getValue());
+                    log.info(">>>" + notification.toString());
                 })
                 .build(
-                        new CacheLoader<String,String>() {
+                        new CacheLoader<String, String>() {
                             @Override
                             public String load(String key) {
                                 log.info("load for key:" + key);
-                                return "key-default-"+key + "value-" + LocalDateTime.now();
+                                return "key-default-" + key + "value-" + LocalDateTime.now();
 //                                return createExpensiveGraph(key);
                             }
                         });
@@ -43,7 +45,7 @@ public class Example {
             value = cache.get(key1);
             System.out.println("val2:" + value);
 
-            cache.put(key1,"new-put-value");//触发removal
+            cache.put(key1, "new-put-value");//触发removal
 
             value = cache.get(key1);
             System.out.println("val3:" + value);

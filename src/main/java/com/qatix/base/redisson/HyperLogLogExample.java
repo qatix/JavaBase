@@ -2,7 +2,6 @@ package com.qatix.base.redisson;
 
 import org.redisson.Redisson;
 import org.redisson.api.RHyperLogLog;
-import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.redisson.config.SingleServerConfig;
@@ -22,7 +21,7 @@ public class HyperLogLogExample {
         log.add("abc");
         log.add("ccd");
         log.add("ccc");
-        String[] arr = new String[]{"a111","b222","c333"};
+        String[] arr = new String[]{"a111", "b222", "c333"};
         log.addAll(Arrays.asList(arr));
         System.out.println(log.count());
 

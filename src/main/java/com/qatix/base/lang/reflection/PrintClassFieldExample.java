@@ -6,21 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PrintClassFieldExample {
-    static class Student {
-        private String name;
-        private String claz;
-        private Integer age;
-        protected String protectedFieldInStudent;
-        public String publicFieldInStudent;
-    }
-
-    static class HighSchoolStudent extends Student {
-        private String learnType;
-        private String highSchoolName;
-        protected String protectedFieldInChild;
-        public String publicFieldInChild;
-    }
-
     public static void main(String[] args) {
         System.out.println("Student:");
         printClassFields(Student.class);
@@ -58,6 +43,21 @@ public class PrintClassFieldExample {
         for (Field field : fieldList) {
             System.out.println("The field is: " + field.getName());
         }
+    }
+
+    static class Student {
+        public String publicFieldInStudent;
+        protected String protectedFieldInStudent;
+        private String name;
+        private String claz;
+        private Integer age;
+    }
+
+    static class HighSchoolStudent extends Student {
+        public String publicFieldInChild;
+        protected String protectedFieldInChild;
+        private String learnType;
+        private String highSchoolName;
     }
 }
 

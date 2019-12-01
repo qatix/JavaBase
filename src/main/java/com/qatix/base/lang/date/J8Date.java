@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 
@@ -35,11 +34,11 @@ public class J8Date {
         System.out.println(Instant.now().atZone(ZoneId.systemDefault()).toLocalDateTime());
 
         //temporalField and temporlaAdjusters
-        LocalDateTime localDateTime  = LocalDateTime.now();
+        LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println(localDateTime.plusDays(1));
-        System.out.println(localDateTime.with(ChronoField.YEAR,2013));
-        System.out.println(localDateTime.with(ChronoField.DAY_OF_YEAR,20));
-        System.out.println(localDateTime.with(ChronoField.MONTH_OF_YEAR,12));
+        System.out.println(localDateTime.with(ChronoField.YEAR, 2013));
+        System.out.println(localDateTime.with(ChronoField.DAY_OF_YEAR, 20));
+        System.out.println(localDateTime.with(ChronoField.MONTH_OF_YEAR, 12));
         System.out.println(localDateTime.with(TemporalAdjusters.firstDayOfMonth()));
         System.out.println(localDateTime.get(ChronoField.YEAR));
         System.out.println(localDateTime.get(ChronoField.MONTH_OF_YEAR));

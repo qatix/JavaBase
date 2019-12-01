@@ -35,14 +35,14 @@ public class MinMaxExample {
         System.out.println("before sort:");
         System.out.println(list.toString());
 
-        List<String> res  = ordering.sortedCopy(list);
+        List<String> res = ordering.sortedCopy(list);
         System.out.println("after sort:");
         System.out.println(res.toString());
 
         System.out.println("is-ordered-before:" + ordering.isOrdered(list));
         System.out.println("is-ordered-after:" + ordering.isOrdered(res));
 
-        List<String> greatK3 = ordering.greatestOf(list,3);
+        List<String> greatK3 = ordering.greatestOf(list, 3);
         System.out.println("greatest k3:");
         System.out.println(greatK3.toString());
     }

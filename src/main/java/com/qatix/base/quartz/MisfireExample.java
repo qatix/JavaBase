@@ -9,9 +9,9 @@ import java.util.Date;
 
 
 /**
- * @see http://www.quartz-scheduler.org/documentation/quartz-2.x/examples/Example4.html
  * @Author: Logan.Tang
  * @Date: 2018/11/1 11:41 AM
+ * @see http://www.quartz-scheduler.org/documentation/quartz-2.x/examples/Example4.html
  */
 @Log
 public class MisfireExample {
@@ -22,34 +22,34 @@ public class MisfireExample {
         Scheduler scheduler = schedulerFactory.getScheduler();
 
         JobDetail job1 = JobBuilder.newJob(StatefulDumbJob.class)
-                .withIdentity("statefulJob1","group1")
-                .usingJobData(StatefulDumbJob.EXECUTION_DELAY,10000L)
+                .withIdentity("statefulJob1", "group1")
+                .usingJobData(StatefulDumbJob.EXECUTION_DELAY, 10000L)
                 .build();
 
         Date runTime = new Date(System.currentTimeMillis() + 5000);
-        SimpleTrigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1","group1")
+        SimpleTrigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
                 .startAt(runTime)
                 .withSchedule(SimpleScheduleBuilder
                         .simpleSchedule()
                         .withIntervalInSeconds(3)
-                    .repeatForever())
+                        .repeatForever())
                 .build();
-        scheduler.scheduleJob(job1,trigger);
+        scheduler.scheduleJob(job1, trigger);
 
 
         JobDetail job2 = JobBuilder.newJob(StatefulDumbJob.class)
-                .withIdentity("statefulJob2","group1")
-                .usingJobData(StatefulDumbJob.EXECUTION_DELAY,10000L)
+                .withIdentity("statefulJob2", "group1")
+                .usingJobData(StatefulDumbJob.EXECUTION_DELAY, 10000L)
                 .build();
 
-        trigger = TriggerBuilder.newTrigger().withIdentity("trigger2","group1")
+        trigger = TriggerBuilder.newTrigger().withIdentity("trigger2", "group1")
                 .startAt(runTime)
                 .withSchedule(SimpleScheduleBuilder
                         .simpleSchedule()
                         .withIntervalInSeconds(3)
                         .repeatForever().withMisfireHandlingInstructionNowWithExistingCount())
                 .build();
-        scheduler.scheduleJob(job2,trigger);
+        scheduler.scheduleJob(job2, trigger);
 
         log.info("job schedule at " + new Date());
         scheduler.start();

@@ -6,20 +6,20 @@ package com.qatix.base.jvm.oom;
 public class VMStackSOF {
     private int stackLength = 1;
 
-    public void stackLeak(){
-        stackLength++;
-        stackLeak();
-    }
-
     public static void main(String[] args) {
         VMStackSOF vmStackSOF = new VMStackSOF();
-        try{
+        try {
             vmStackSOF.stackLeak();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("stack lenth:" + vmStackSOF.stackLength);
 //            e.printStackTrace();
             throw e;
         }
+    }
+
+    public void stackLeak() {
+        stackLength++;
+        stackLeak();
     }
 }
 

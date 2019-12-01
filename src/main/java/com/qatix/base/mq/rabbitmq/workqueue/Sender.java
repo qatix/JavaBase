@@ -16,10 +16,10 @@ public class Sender {
         Connection connection = MQHelper.getConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         int i = 0;
         while (i++ < 10) {
-            String message = "hello rabbitmq " + i + " - " + new Date() + (i%3 == 1 ? "lol" : "");
+            String message = "hello rabbitmq " + i + " - " + new Date() + (i % 3 == 1 ? "lol" : "");
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
         }

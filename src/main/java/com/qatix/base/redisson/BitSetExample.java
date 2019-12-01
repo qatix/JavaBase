@@ -18,8 +18,8 @@ public class BitSetExample {
         RedissonClient client = Redisson.create(config);
         RBitSet bset = client.getBitSet("mybitset");
 
-        bset.set(0,true);
-        bset.set(1000,false);
+        bset.set(0, true);
+        bset.set(1000, false);
         System.out.println(bset.get(0));
         System.out.println(bset.get(100));
 

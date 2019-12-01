@@ -2,7 +2,6 @@ package com.qatix.base.guava;
 
 import com.google.common.util.concurrent.*;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 
 /**

@@ -25,7 +25,7 @@ public class OrderedProducer {
                     Integer id = (Integer) arg;
                     int index = id % mqs.size(); //此处返回队列的标号，如果只有一个则是全局有序，多个是局部有序
                     System.out.println("mqs size:" + mqs.size());//默认是4，怎么来的？好像是配置文件中指定的
-                    System.out.println("id:" + id + "," + index+"," + msg);
+                    System.out.println("id:" + id + "," + index + "," + msg);
 //                    return mqs.get(7);//IndexOutOfBoundsException: Index: 7, Size: 4
                     return mqs.get(index);
 //                    return mqs.get(0); //只有一个队列
@@ -38,7 +38,7 @@ public class OrderedProducer {
     }
 }
 
-class TQ implements MessageQueueSelector{
+class TQ implements MessageQueueSelector {
 
     public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
         return null;

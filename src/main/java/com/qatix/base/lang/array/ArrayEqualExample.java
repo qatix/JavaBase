@@ -9,13 +9,6 @@ import java.util.List;
 
 public class ArrayEqualExample {
 
-    @Data
-    @AllArgsConstructor
-    private static class Student {
-        private String name;
-        private int age;
-    }
-
     public static void main(String[] args) {
         Student student1 = new Student("zahngs", 31);
         Student student2 = new Student("lisi", 22);
@@ -30,5 +23,12 @@ public class ArrayEqualExample {
         System.out.println(aList);
         System.out.println(bList);
         System.out.println("is-equal:" + CollectionUtils.isEqualCollection(aList, bList));
+    }
+
+    @Data
+    @AllArgsConstructor
+    private static class Student {
+        private String name;
+        private int age;
     }
 }

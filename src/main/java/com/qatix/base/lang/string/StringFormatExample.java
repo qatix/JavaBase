@@ -6,7 +6,7 @@ package com.qatix.base.lang.string;
  */
 public class StringFormatExample {
     public static void main(String[] args) {
-        String str = String.format("%s-%s", "abc","123");
+        String str = String.format("%s-%s", "abc", "123");
         System.out.println(str);
     }
 }

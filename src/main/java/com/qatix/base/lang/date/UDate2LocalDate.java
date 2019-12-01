@@ -37,7 +37,7 @@ public class UDate2LocalDate {
         //LocalTime -> Date
         LocalDate localDate2 = LocalDate.now();
         LocalTime localTime2 = LocalTime.now();
-        LocalDateTime localDateTime2 = LocalDateTime.of(localDate2,localTime2);
+        LocalDateTime localDateTime2 = LocalDateTime.of(localDate2, localTime2);
         Instant instant3 = localDateTime2.atZone(ZoneId.systemDefault()).toInstant();
         Date date3 = Date.from(instant3);
         System.out.println(date3);

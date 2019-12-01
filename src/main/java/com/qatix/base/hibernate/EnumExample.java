@@ -5,8 +5,6 @@ import com.qatix.base.hibernate.enums.PhoneType;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.Date;
-
 /**
  * @Author: Logan.Tang
  * @Date: 2018/12/2 10:28 PM

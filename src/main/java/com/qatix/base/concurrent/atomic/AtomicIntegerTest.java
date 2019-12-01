@@ -18,8 +18,8 @@ public class AtomicIntegerTest {
         AtomicInteger ai2 = new AtomicInteger(123);
         int expectedValue = 1235;
         int newValue = 234;
-        boolean seted = ai2.compareAndSet(expectedValue,newValue);
-        System.out.println("compare and set:(" + seted +")" + ai2.get());
+        boolean seted = ai2.compareAndSet(expectedValue, newValue);
+        System.out.println("compare and set:(" + seted + ")" + ai2.get());
 
 
         AtomicInteger ai3 = new AtomicInteger();

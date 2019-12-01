@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 什么用Slf4j替代log4j
  * https://www.oschina.net/translate/why-use-sl4j-over-log4j-for-logging
+ *
  * @Author: Logan.Tang
  * @Date: 2018/10/29 5:14 PM
  */
@@ -18,19 +19,19 @@ public class LogTest {
         System.out.println("isErrorEnabled:" + log.isErrorEnabled());
 
         log.trace("this is info");
-        log.trace("this is info with params : {}",123);
+        log.trace("this is info with params : {}", 123);
 
         log.info("this is info");
-        log.info("this is info with params : {}",123);
+        log.info("this is info with params : {}", 123);
 
         log.warn("this is warning");
-        log.warn("this is warning with params : {}",123);
+        log.warn("this is warning with params : {}", 123);
 
         log.error("this is warning");
-        log.error("this is warning with params : {}",123);
+        log.error("this is warning with params : {}", 123);
 
         log.debug("this is warning");
-        log.debug("this is warning with params : {}",123);
+        log.debug("this is warning with params : {}", 123);
     }
 }
 /*

@@ -7,7 +7,7 @@ import org.modelmapper.ModelMapper;
 import java.util.List;
 
 public class DtoUtil {
-    public static void test(){
+    public static void test() {
         ModelMapper modelMapper = new ModelMapper();
         ProductA productA = new ProductA();
         productA.setName("Apple");
@@ -26,7 +26,7 @@ public class DtoUtil {
         productA.setFeature(feature);
         System.out.println(productA.toString());
 
-        ProductB productB = modelMapper.map(productA,ProductB.class);
+        ProductB productB = modelMapper.map(productA, ProductB.class);
         System.out.println(productB.toString());
         productB.setFeature(JSON.parseArray(productA.feature, ProductB.FeatureItem.class));
         System.out.println(productB.toString());
@@ -38,18 +38,18 @@ public class DtoUtil {
     }
 
     @Data
-    public static class ProductA{
+    public static class ProductA {
         private String name;
         private String feature;
     }
 
     @Data
-    public static class ProductB{
+    public static class ProductB {
         private String name;
         private List<FeatureItem> feature;
 
         @Data
-        public static class FeatureItem{
+        public static class FeatureItem {
             private String title;
             private String intro;
         }

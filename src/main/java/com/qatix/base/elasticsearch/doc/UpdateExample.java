@@ -18,6 +18,7 @@ import java.util.Map;
 
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-update.html
+ *
  * @Author: Logan.Tang
  * @Date: 2018/11/1 6:17 PM
  */
@@ -65,7 +66,7 @@ public class UpdateExample {
 
         UpdateRequest request = new UpdateRequest("posts", "doc", "3").doc(builder);
 
-        UpdateResponse response = client.update(request,RequestOptions.DEFAULT);
+        UpdateResponse response = client.update(request, RequestOptions.DEFAULT);
 
         System.out.println("status:" + response.status());
         System.out.println(response.toString());
@@ -87,7 +88,7 @@ public class UpdateExample {
         String jsonString = "{\"created\":\"2017-01-01\"}";
         request.upsert(jsonString, XContentType.JSON);
 
-        UpdateResponse response = client.update(request,RequestOptions.DEFAULT);
+        UpdateResponse response = client.update(request, RequestOptions.DEFAULT);
 
         System.out.println("status:" + response.status());
         System.out.println(response.toString());

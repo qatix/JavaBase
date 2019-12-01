@@ -4,9 +4,21 @@ import java.util.concurrent.*;
 
 public class ExecutorServiceTest {
 
-        public static final ExecutorService es = Executors.newFixedThreadPool(3);
+    public static final ExecutorService es = Executors.newFixedThreadPool(3);
 //    public static final ExecutorService es = Executors.newCachedThreadPool();
 //    public static final ExecutorService es = Executors.newSingleThreadExecutor();
+
+    public static void main(String[] args) {
+        ExecutorServiceTest est = new ExecutorServiceTest();
+        try {
+            est.testSubmitRunable();
+            est.testSubmitCallable();
+            est.testExecute();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private void testExecute() {
         es.execute(new Runnable() {
@@ -36,17 +48,5 @@ public class ExecutorServiceTest {
             }
         });
         System.out.println("callable result:" + future.get());
-    }
-
-    public static void main(String[] args) {
-        ExecutorServiceTest est = new ExecutorServiceTest();
-        try {
-            est.testSubmitRunable();
-            est.testSubmitCallable();
-            est.testExecute();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 }

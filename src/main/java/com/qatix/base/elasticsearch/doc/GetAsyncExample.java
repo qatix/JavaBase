@@ -14,9 +14,9 @@ import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import java.io.IOException;
 
 /**
- * @see https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html
  * @Author: Logan.Tang
  * @Date: 2018/11/1 4:27 PM
+ * @see https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-get.html
  */
 public class GetAsyncExample {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -32,9 +32,9 @@ public class GetAsyncExample {
 //        getRequest.fetchSourceContext(FetchSourceContext.FETCH_SOURCE);
 
         //configurate source inclusion for specific fields
-        String[] includes = new String[]{"business_address","business_city"};
+        String[] includes = new String[]{"business_address", "business_city"};
         String[] excludes = Strings.EMPTY_ARRAY;
-        FetchSourceContext fetchSourceContext = new FetchSourceContext(true,includes,excludes);
+        FetchSourceContext fetchSourceContext = new FetchSourceContext(true, includes, excludes);
         getRequest.fetchSourceContext(fetchSourceContext);
 
 
@@ -43,7 +43,7 @@ public class GetAsyncExample {
             public void onResponse(GetResponse documentFields) {
                 System.out.println("onResponse");
                 System.out.println("is exist:" + documentFields.isExists());
-                if(documentFields.isExists()){
+                if (documentFields.isExists()) {
                     System.out.println("source:");
                     System.out.println(documentFields.getSourceAsMap().toString());
                 }

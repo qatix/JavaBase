@@ -10,14 +10,14 @@ import java.util.Map;
 public class MapAddExample {
     public static void main(String[] args) {
 
-        Map<String,Integer> map = new HashMap<>();
-        map.put("key1",100);
+        Map<String, Integer> map = new HashMap<>();
+        map.put("key1", 100);
 
-        map.putIfAbsent("key2",0);
+        map.putIfAbsent("key2", 0);
         System.out.println(map);
 
-        map.computeIfPresent("key1",(key,val)->val+5);
-        map.computeIfPresent("key3",(key,val)->val+3);
+        map.computeIfPresent("key1", (key, val) -> val + 5);
+        map.computeIfPresent("key3", (key, val) -> val + 3);
         map.putIfAbsent("key4", 4);
 
         System.out.println(map);

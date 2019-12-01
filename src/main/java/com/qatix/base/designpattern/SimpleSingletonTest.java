@@ -13,15 +13,16 @@ public class SimpleSingletonTest {
     }
 }
 
-class SimpleSingleton{
+class SimpleSingleton {
 
     private static SimpleSingleton instance = null;
-    private SimpleSingleton(){
+
+    private SimpleSingleton() {
         System.out.println("LazySingleton is create");
     }
 
-    public static synchronized SimpleSingleton getInstance(){
-        if( null == instance ){
+    public static synchronized SimpleSingleton getInstance() {
+        if (null == instance) {
             instance = new SimpleSingleton();
         }
         return instance;

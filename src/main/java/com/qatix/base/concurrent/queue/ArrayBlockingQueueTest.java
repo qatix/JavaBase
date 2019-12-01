@@ -16,7 +16,7 @@ public class ArrayBlockingQueueTest {
     }
 }
 
-class Producer implements Runnable{
+class Producer implements Runnable {
 
     private BlockingQueue queue;
 
@@ -38,7 +38,7 @@ class Producer implements Runnable{
     }
 }
 
-class Consumer implements Runnable{
+class Consumer implements Runnable {
     private BlockingQueue queue;
 
     public Consumer(BlockingQueue queue) {

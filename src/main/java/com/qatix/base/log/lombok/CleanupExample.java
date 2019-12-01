@@ -1,13 +1,13 @@
 package com.qatix.base.log.lombok;
 
 import lombok.Cleanup;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 
 /**
  * https://projectlombok.org/features/Cleanup
+ *
  * @Author: Logan.Tang
  * @Date: 2018/10/29 5:57 PM
  */

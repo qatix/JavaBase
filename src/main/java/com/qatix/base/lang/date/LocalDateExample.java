@@ -5,16 +5,16 @@ import java.time.*;
 
 public class LocalDateExample {
     public static void main(String[] args) {
-        LocalDate ld = LocalDate.of(2015,3,22);
+        LocalDate ld = LocalDate.of(2015, 3, 22);
         System.out.println(ld);
 
-        LocalTime lt  = LocalTime.of(22,23,24);
+        LocalTime lt = LocalTime.of(22, 23, 24);
         System.out.println(lt);
 
-        LocalDateTime ldt = LocalDateTime.of(2017,1,3,4,5,6,230);
+        LocalDateTime ldt = LocalDateTime.of(2017, 1, 3, 4, 5, 6, 230);
         System.out.println(ldt);
 
-        ZonedDateTime zdt = ZonedDateTime.of(LocalDateTime.of(2016,2,3,4,30,22),
+        ZonedDateTime zdt = ZonedDateTime.of(LocalDateTime.of(2016, 2, 3, 4, 30, 22),
                 ZoneId.of("+08"));
         System.out.println(zdt);
 

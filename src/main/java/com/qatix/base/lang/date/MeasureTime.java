@@ -20,7 +20,7 @@ public class MeasureTime {
         System.out.println(stopwatch.elapsedMillis());
     }
 
-    private static void way2UseSysMilli(){
+    private static void way2UseSysMilli() {
         Long start = System.currentTimeMillis();
 
         try {
@@ -34,7 +34,7 @@ public class MeasureTime {
         System.out.println(timecost);
     }
 
-    private static void way3UseSysNano(){
+    private static void way3UseSysNano() {
         Long start = System.nanoTime();
 
         try {
@@ -48,7 +48,7 @@ public class MeasureTime {
         System.out.println(timecost);
     }
 
-    private static void way4UseInstant(){
+    private static void way4UseInstant() {
         Instant start = Instant.now();
 
         try {
@@ -58,7 +58,7 @@ public class MeasureTime {
         }
         Instant end = Instant.now();
 
-        Long timeElapsed = Duration.between(start,end).toMillis();
+        Long timeElapsed = Duration.between(start, end).toMillis();
         System.out.println(timeElapsed);
     }
 

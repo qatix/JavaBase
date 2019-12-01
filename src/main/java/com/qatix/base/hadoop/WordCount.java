@@ -14,6 +14,26 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class WordCount {
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        conf.set("fs.defaultFS", "hdfs://s211:9000");
+        conf.set("dfs.replication", "2");
+
+        Job job = Job.getInstance(conf, "WordCount");
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(TokenizerMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job, new Path("/input"));
+        FileInputFormat.addInputPath(job, new Path("/input2"));
+        FileOutputFormat.setOutputPath(job, new Path("/output3"));
+
+
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+
     public static class TokenizerMapper
             extends Mapper<Object, Text, Text, IntWritable> {
         private static final IntWritable one = new IntWritable(0);
@@ -44,25 +64,5 @@ public class WordCount {
             this.result.set(sum);
             context.write(key, this.result);
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        conf.set("fs.defaultFS","hdfs://s211:9000");
-        conf.set("dfs.replication","2");
-
-        Job job = Job.getInstance(conf, "WordCount");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path("/input"));
-        FileInputFormat.addInputPath(job, new Path("/input2"));
-        FileOutputFormat.setOutputPath(job, new Path("/output3"));
-
-
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }

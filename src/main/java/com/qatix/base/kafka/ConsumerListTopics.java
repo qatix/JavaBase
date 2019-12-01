@@ -1,18 +1,15 @@
 package com.qatix.base.kafka;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.PartitionInfo;
 
-import java.time.Duration;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 /**
  * test pass
+ *
  * @Author: Logan.Tang
  * @Date: 2018/10/25 2:46 PM
  */
@@ -25,10 +22,10 @@ public class ConsumerListTopics {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");//must
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 
-        Map<String, List<PartitionInfo>> topics =  consumer.listTopics();
-        for (Map.Entry<String,List<PartitionInfo>> entry:topics.entrySet()){
-            System.out.println("topic:"+ entry.getKey());
-            for (PartitionInfo partitionInfo:entry.getValue()){
+        Map<String, List<PartitionInfo>> topics = consumer.listTopics();
+        for (Map.Entry<String, List<PartitionInfo>> entry : topics.entrySet()) {
+            System.out.println("topic:" + entry.getKey());
+            for (PartitionInfo partitionInfo : entry.getValue()) {
                 System.out.println("\tpartition:" + partitionInfo.toString());
             }
         }

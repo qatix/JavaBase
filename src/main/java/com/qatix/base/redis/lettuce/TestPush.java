@@ -9,7 +9,7 @@ import io.lettuce.core.api.StatefulRedisConnection;
 public class TestPush {
 
     public static void main(String[] args) {
-        LogRdsConfig config = new LogRdsConfig("localhost",6379,"",10,5,2,500,5000);
+        LogRdsConfig config = new LogRdsConfig("localhost", 6379, "", 10, 5, 2, 500, 5000);
         System.out.println(config.toString());
 
         LogRdsPool pool = new LogRdsPool(config);
@@ -17,10 +17,11 @@ public class TestPush {
         try {
             StatefulRedisConnection<String, String> connection = pool.borrowObject();
 
-            System.out.println("before:" + connection.sync().llen("lettuce-queue"));;
+            System.out.println("before:" + connection.sync().llen("lettuce-queue"));
+            ;
 
-            connection.async().lpush("lettuce-queue","async1");
-            connection.async().lpush("lettuce-queue","async2");
+            connection.async().lpush("lettuce-queue", "async1");
+            connection.async().lpush("lettuce-queue", "async2");
 
             System.out.println("after:" + connection.sync().llen("lettuce-queue"));
 

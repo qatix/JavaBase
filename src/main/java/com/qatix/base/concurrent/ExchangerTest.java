@@ -6,8 +6,8 @@ public class ExchangerTest {
 
     public static void main(String[] args) {
         Exchanger exchanger = new Exchanger();
-        ExchangerRunnable exchangerRunnable1 = new ExchangerRunnable(exchanger,new ExObjec("tang",30));
-        ExchangerRunnable exchangerRunnable2 = new ExchangerRunnable(exchanger,new ExObjec("rong",25));
+        ExchangerRunnable exchangerRunnable1 = new ExchangerRunnable(exchanger, new ExObjec("tang", 30));
+        ExchangerRunnable exchangerRunnable2 = new ExchangerRunnable(exchanger, new ExObjec("rong", 25));
         new Thread(exchangerRunnable1).start();
         new Thread(exchangerRunnable2).start();
         /**
@@ -17,7 +17,7 @@ public class ExchangerTest {
     }
 }
 
-class ExObjec{
+class ExObjec {
     private String name;
     private int age;
 
@@ -35,7 +35,7 @@ class ExObjec{
     }
 }
 
-class ExchangerRunnable implements Runnable{
+class ExchangerRunnable implements Runnable {
     Exchanger exchanger;
     Object object;
 
@@ -46,11 +46,11 @@ class ExchangerRunnable implements Runnable{
 
     @Override
     public void run() {
-        try{
+        try {
             Object previous = this.object;
             this.object = this.exchanger.exchange(this.object);
             System.out.println(Thread.currentThread().getName() + " exchange " + previous + " for " + this.object);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

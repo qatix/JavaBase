@@ -54,7 +54,7 @@ public class SearchExample {
     }
 
     private static TopDocs searchByTitlePrefix(String prefix, IndexSearcher searcher) throws ParseException, IOException {
-        Term term = new Term("title",prefix);
+        Term term = new Term("title", prefix);
         Query prefixQuery = new PrefixQuery(term);
         return searcher.search(prefixQuery, 10);
     }

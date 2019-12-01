@@ -6,11 +6,11 @@ package com.qatix.base.spring.scope;
  */
 public class ProductService {
 
+    private String productHolder;
+
     public ProductService() {
         System.out.println("ProductService Constructing...");
     }
-
-    private String productHolder;
 
     public String getProductHolder() {
         return productHolder;

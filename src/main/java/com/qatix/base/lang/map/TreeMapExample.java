@@ -10,11 +10,11 @@ import java.util.TreeMap;
  */
 public class TreeMapExample {
     public static void main(String[] args) {
-        Map<String,String> map = new TreeMap<>(Collections.reverseOrder());
-        map.put("aaa","122");
-        map.put("ccc","2121");
-        map.put("bbb","cdsd");
-        map.put("cc1","cc1");
+        Map<String, String> map = new TreeMap<>(Collections.reverseOrder());
+        map.put("aaa", "122");
+        map.put("ccc", "2121");
+        map.put("bbb", "cdsd");
+        map.put("cc1", "cc1");
 
         System.out.println(map.toString());
     }

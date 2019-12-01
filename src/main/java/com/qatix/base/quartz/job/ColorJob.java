@@ -6,9 +6,9 @@ import org.quartz.*;
 import java.util.Date;
 
 /**
- *@see http://www.quartz-scheduler.org/documentation/quartz-2.x/examples/Example4.html
  * @Author: Logan.Tang
  * @Date: 2018/11/1 2:06 PM
+ * @see http://www.quartz-scheduler.org/documentation/quartz-2.x/examples/Example4.html
  */
 @Slf4j
 @PersistJobDataAfterExecution

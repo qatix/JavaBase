@@ -14,7 +14,7 @@ public class ParallelStreamExample {
 
         int max = 1000000;
         List<String> values = new ArrayList<>();
-        for(int i=0;i<max;i++){
+        for (int i = 0; i < max; i++) {
             UUID uuid = UUID.randomUUID();
             values.add(uuid.toString());
         }
@@ -31,7 +31,7 @@ public class ParallelStreamExample {
         count = values.parallelStream().sorted().count();
         System.out.println(count);
         long t3 = System.nanoTime();
-        millis = TimeUnit.NANOSECONDS.toMillis(t3-t2);
+        millis = TimeUnit.NANOSECONDS.toMillis(t3 - t2);
         System.out.println(String.format("Parallel sort took:%d ms", millis));
 
     }

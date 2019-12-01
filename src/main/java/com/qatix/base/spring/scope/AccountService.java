@@ -6,11 +6,11 @@ package com.qatix.base.spring.scope;
  */
 public class AccountService {
 
+    private String accountHolder;
+
     public AccountService() {
         System.out.println("AccountService Constructing...");
     }
-
-    private String accountHolder;
 
     public String getAccountHolder() {
         return accountHolder;

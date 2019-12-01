@@ -15,7 +15,7 @@ public class OnewayProducer {
         producer.start();
 
         for (int i = 0; i < 10; i++) {
-            Message message = new Message("TopicTest","TagA",
+            Message message = new Message("TopicTest", "TagA",
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
             producer.sendOneway(message);
             System.out.println("send " + i);

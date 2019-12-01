@@ -5,24 +5,24 @@ import java.util.List;
 
 /**
  * -Xms20m -Xms20 -XX:+HeadDumpOnOutOfMemoryError
- *
+ * <p>
  * java oom.HeapOOM -Xms20m -Xms20 -XX:+HeadDumpOnOutOfMemoryError
  */
 public class HeapOOM {
-    static class OOMObject{
-
-    }
-
     public static void main(String[] args) {
         List<OOMObject> list = new ArrayList<OOMObject>();
         System.out.println("started");
-        while (true){
+        while (true) {
             list.add(new OOMObject());
         }
     }
+
+    static class OOMObject {
+
+    }
 }
 
-                                                                     
+
 //Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
 //        at java.util.Arrays.copyOf(Arrays.java:3210)
 //        at java.util.Arrays.copyOf(Arrays.java:3181)

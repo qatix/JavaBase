@@ -15,12 +15,12 @@ public class KeysTest {
     private static final String redisPassword = "";
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis(redisHost,redisPort,60000);
-        if(redisPassword.length() > 0) {
+        Jedis jedis = new Jedis(redisHost, redisPort, 60000);
+        if (redisPassword.length() > 0) {
             jedis.auth(redisPassword);
         }
 
-        Set<String> names=jedis.keys("bill_date:*:d:*");
+        Set<String> names = jedis.keys("bill_date:*:d:*");
         System.out.println(names.size());
 
         String todayStr = FastDateFormat.getInstance("yyyyMMdd").format(new Date());
@@ -28,10 +28,10 @@ public class KeysTest {
         while (it.hasNext()) {
             String key = it.next();
 //            System.out.println(s);
-           String dateStr =  key.substring(key.length()-8,key.length());
+            String dateStr = key.substring(key.length() - 8, key.length());
             System.out.println(key + " " + dateStr + " " + todayStr + " " + dateStr.compareTo(todayStr));
 
-            if(dateStr.compareTo(todayStr) >= 0){//比今天晚的日期不清空
+            if (dateStr.compareTo(todayStr) >= 0) {//比今天晚的日期不清空
                 continue;
             }
 

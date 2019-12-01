@@ -12,7 +12,7 @@ import org.springframework.context.annotation.DependsOn;
 public class AppConfig {
 
     @Bean("beanOne")
-    @DependsOn(value = { "beanTwo", "beanThree" })
+    @DependsOn(value = {"beanTwo", "beanThree"})
     public BeanOne getBeanOne() {
         return new BeanOne();
     }

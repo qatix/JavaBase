@@ -1,9 +1,7 @@
 package com.qatix.base.kafka;
 
-import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
 
@@ -26,9 +24,9 @@ public class ProducerTest {
 
         String topic = "javatopic";
 
-        KafkaProducer<String,String> producer = new KafkaProducer<>(props);
+        KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
 //            producer.send(new ProducerRecord<String, String>(topic,0,null,"hello","kafka-"+i));
 //            producer.send(new ProducerRecord<String, String>(topic, "hello", "val-" + i), new Callback() {
 //                @Override
@@ -37,8 +35,8 @@ public class ProducerTest {
 //                    System.out.println(metadata);
 //                }
 //            });
-            producer.send(new ProducerRecord<String, String>(topic,"data-"+i));
-            System.out.println("put-"+i);
+            producer.send(new ProducerRecord<String, String>(topic, "data-" + i));
+            System.out.println("put-" + i);
         }
         System.out.println("done");
     }

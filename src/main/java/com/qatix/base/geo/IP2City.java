@@ -54,7 +54,7 @@ public class IP2City {
     }
 
     //simpler
-    public static void test() throws Exception{
+    public static void test() throws Exception {
         String ip = "69.172.89.148";
 
         File database = new File("/Users/Logan/data/geoip/GeoIP2-City.mmdb");

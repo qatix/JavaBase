@@ -11,16 +11,16 @@ import java.util.concurrent.TimeoutException;
 public class EmitLog {
     public static final String EXCHANGE_NAME = "topic_logs";
 
-    public static void main(String[] args) throws IOException,TimeoutException {
+    public static void main(String[] args) throws IOException, TimeoutException {
 
         Connection connection = MQHelper.getConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(EXCHANGE_NAME,"topic");
+        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
         String routingKey = "abc";
 
         String message = "hello rabbitmq pubsub - " + new Date();
-        channel.basicPublish(EXCHANGE_NAME,routingKey,null,message.getBytes());
+        channel.basicPublish(EXCHANGE_NAME, routingKey, null, message.getBytes());
         System.out.println(" [x] Publish '" + message + "'");
 
 //        channel.close();

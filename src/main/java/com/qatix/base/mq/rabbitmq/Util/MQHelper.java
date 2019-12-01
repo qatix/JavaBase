@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class MQHelper {
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(Constant.SERVER_HOST);
         try {

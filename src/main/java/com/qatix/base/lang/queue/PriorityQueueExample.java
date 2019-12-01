@@ -30,14 +30,14 @@ public class PriorityQueueExample {
 
         // Check if an element is present using contains()
         boolean b = priorityQueue.contains("C");
-        System.out.println ( "Priority queue contains C " +
+        System.out.println("Priority queue contains C " +
                 "or not?: " + b);
 
         // Getting objects from the queue using toArray()
         // in an array and print the array
         Object[] arr = priorityQueue.toArray();
-        System.out.println ( "Value in array: ");
-        for (int i = 0; i<arr.length; i++) {
+        System.out.println("Value in array: ");
+        for (int i = 0; i < arr.length; i++) {
             System.out.println("Value: " + arr[i].toString());
         }
     }

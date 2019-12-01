@@ -9,6 +9,14 @@ public class OkHttpPostExample {
 
     OkHttpClient client = new OkHttpClient();
 
+    public static void main(String[] args) throws IOException {
+        OkHttpPostExample example = new OkHttpPostExample();
+        String json = example.bowlingJson("Jesse", "Jake");
+        String response = example.post("http://www.roundsapp.com/post", json);
+        System.out.println("response:");
+        System.out.println(response);
+    }
+
     String post(String url, String json) throws IOException {
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
@@ -30,13 +38,5 @@ public class OkHttpPostExample {
                 + "{'name':'" + player1 + "','history':[10,8,6,7,8],'color':-13388315,'total':39},"
                 + "{'name':'" + player2 + "','history':[6,10,5,10,10],'color':-48060,'total':41}"
                 + "]}";
-    }
-
-    public static void main(String[] args) throws IOException {
-        OkHttpPostExample example = new OkHttpPostExample();
-        String json = example.bowlingJson("Jesse", "Jake");
-        String response = example.post("http://www.roundsapp.com/post", json);
-        System.out.println("response:");
-        System.out.println(response);
     }
 }

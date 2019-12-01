@@ -10,6 +10,7 @@ import java.util.Properties;
 
 /**
  * test pass
+ *
  * @Author: Logan.Tang
  * @Date: 2018/10/25 2:46 PM
  */
@@ -27,7 +28,7 @@ public class ConsumerTest {
         String mytopic = "javatopic";
         consumer.subscribe(Collections.singletonList(mytopic));
 
-        System.out.println("Subscribed to topic "+mytopic);
+        System.out.println("Subscribed to topic " + mytopic);
 
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(3));

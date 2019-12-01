@@ -16,10 +16,10 @@ public class LockExample {
 
         RedissonClient client = Redisson.create(config);
 
-        while (true){
+        while (true) {
             RLock lock = client.getLock("lock-name");
             try {
-                lock.tryLock(5,20, TimeUnit.SECONDS);
+                lock.tryLock(5, 20, TimeUnit.SECONDS);
                 System.out.println(Thread.currentThread().getName() + ":task start to execute");
                 Thread.sleep(1000);
                 lock.unlock();

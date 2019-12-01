@@ -16,15 +16,6 @@ public class DelayedCacheTest<K, V> {
     public ConcurrentHashMap<K, V> map = new ConcurrentHashMap<K, V>();
     public DelayQueue<DelayedItem<K>> queue = new DelayQueue<DelayedItem<K>>();
 
-    public void put(K k, V v, long liveTime) {
-        V oldV = map.put(k, v);
-        DelayedItem<K> tempItem = new DelayedItem<K>(k, liveTime);
-        if (oldV != null) {
-            queue.remove(tempItem);//把原来的key移除
-        }
-        queue.put(tempItem);//加入新的key
-    }
-
     public DelayedCacheTest() {
         Thread t = new Thread() {
             @Override
@@ -34,21 +25,6 @@ public class DelayedCacheTest<K, V> {
         };
         t.setDaemon(true);
         t.start();
-    }
-
-    public void daemonCheckOverdueKey() {
-        while (true) {
-            DelayedItem<K> delayedItem = queue.poll();
-            if (delayedItem != null) {
-                map.remove(delayedItem.getT());
-                System.out.println(System.nanoTime() + " remove " + delayedItem.getT() + " from cache");
-            }
-            try {
-                Thread.sleep(300);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -69,6 +45,30 @@ public class DelayedCacheTest<K, V> {
 
         Thread.sleep(3000);
         System.out.println();
+    }
+
+    public void put(K k, V v, long liveTime) {
+        V oldV = map.put(k, v);
+        DelayedItem<K> tempItem = new DelayedItem<K>(k, liveTime);
+        if (oldV != null) {
+            queue.remove(tempItem);//把原来的key移除
+        }
+        queue.put(tempItem);//加入新的key
+    }
+
+    public void daemonCheckOverdueKey() {
+        while (true) {
+            DelayedItem<K> delayedItem = queue.poll();
+            if (delayedItem != null) {
+                map.remove(delayedItem.getT());
+                System.out.println(System.nanoTime() + " remove " + delayedItem.getT() + " from cache");
+            }
+            try {
+                Thread.sleep(300);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 

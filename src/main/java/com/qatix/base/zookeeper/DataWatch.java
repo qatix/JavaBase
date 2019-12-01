@@ -8,16 +8,6 @@ import java.util.concurrent.CountDownLatch;
 public class DataWatch implements Watcher {
     private static CountDownLatch countDownLatch = new CountDownLatch(1);
 
-    @Override
-    public void process(WatchedEvent watchedEvent) {
-        System.out.println("process:" + watchedEvent.toString());
-        System.out.println("state:" + watchedEvent.getState());
-
-        if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
-            countDownLatch.countDown();
-        }
-    }
-
     public static void main(String[] args) throws InterruptedException, IOException, KeeperException {
         int timeOut = 5000;//5s
         ZooKeeper zk = new ZooKeeper("localhost:2181", timeOut, new DataWatch());
@@ -31,6 +21,16 @@ public class DataWatch implements Watcher {
         zk.setData("/zk-data2", "443".getBytes(), -1);
 
         Thread.sleep(300000);//等待结果
+    }
+
+    @Override
+    public void process(WatchedEvent watchedEvent) {
+        System.out.println("process:" + watchedEvent.toString());
+        System.out.println("state:" + watchedEvent.getState());
+
+        if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
+            countDownLatch.countDown();
+        }
     }
 
 
