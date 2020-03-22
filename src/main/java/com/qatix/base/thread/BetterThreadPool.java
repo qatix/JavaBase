@@ -2,6 +2,7 @@ package com.qatix.base.thread;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
+import java.util.Random;
 import java.util.concurrent.*;
 
 /**
@@ -10,23 +11,32 @@ import java.util.concurrent.*;
  */
 public class BetterThreadPool {
 
-    public static void main(String[] args) {
-        //method1
-//        ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1, new BasicThreadFactory.Builder().daemon(true).build());
+    //最小线程数
+    private static final int CORE_POOL_SIZE = 30;
+    //最大线程数
+    private static final int MAX_POOL_SIZE = 50;
+    //idle线程的keepalive时间
+    private static final long KEEPALIVE_TIME = 10L;
+    //最大队列长度
+    private static final int MAX_QUEUE_CAPACITY = 1024;
 
-        //method2
-        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
+    private ExecutorService executorService;
 
-        //common thread pool
-        ExecutorService pool = new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+    public BetterThreadPool() {
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("Content-Import--Pool-%d").build();
+        //Common Thread Pool
+        this.executorService = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE,
+                KEEPALIVE_TIME, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(MAX_QUEUE_CAPACITY), namedThreadFactory, new ThreadPoolExecutor.CallerRunsPolicy());
+        System.out.println("save thread pool");
+    }
 
-        for (int i = 0; i < 10; i++) {
-            pool.execute(() -> {
-                System.out.println(Thread.currentThread().getName() + " is runing");
-            });
-        }
+    public void submitTask(Runnable task) {
+        this.executorService.submit(task);
+    }
 
-        pool.shutdown();
+    public Future<?> submitCallable(Callable<?> callable) {
+        return this.executorService.submit(callable);
     }
 }
