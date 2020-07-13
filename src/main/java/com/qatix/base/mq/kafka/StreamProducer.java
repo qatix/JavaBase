@@ -1,4 +1,4 @@
-package com.qatix.base.kafka;
+package com.qatix.base.mq.kafka;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;

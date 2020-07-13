@@ -1,5 +1,7 @@
 package com.qatix.base.http;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -97,5 +99,28 @@ public class HttpUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    public static JSONObject getWithJsonResponse(String url) {
+        String responseContent = get(url);
+        if (responseContent == null) {
+            return null;
+        }
+        return JSON.parseObject(responseContent);
+    }
+
+
+    private static String buildQueryString(final Map<String, Object> params) {
+
+        if (null == params) {
+            return "";
+        }
+
+        return params.entrySet().stream()
+                .map(p -> p.getKey() + "=" + p.getValue())
+                .reduce((p1, p2) -> p1 + "&" + p2)
+                .orElse("");
+
     }
 }

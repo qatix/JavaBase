@@ -96,17 +96,11 @@ public class HttpClientUtil {
         // 配置请求的超时设置
 
         RequestConfig requestConfig = RequestConfig.custom()
-
 //连接超时时间
-
                 .setConnectTimeout(CONNECT_TIMEOUT)
-
 //请求超时时间
-
                 .setConnectionRequestTimeout(REQUEST_TIMEOUT)
-
 //响应超时时间
-
                 .setSocketTimeout(READ_TIMEOUT).build();
 
         httpRequestBase.setConfig(requestConfig);
@@ -140,7 +134,6 @@ public class HttpClientUtil {
     /**
      * 创建HttpClient对象
      */
-
     private static CloseableHttpClient createHttpClient(String hostname, int port) {
         ConnectionSocketFactory plainsf = PlainConnectionSocketFactory
                 .getSocketFactory();

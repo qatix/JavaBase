@@ -1,11 +1,10 @@
-package com.qatix.base.kafka;
+package com.qatix.base.mq.kafka;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.kafka.clients.producer.Callback;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
 
@@ -13,7 +12,7 @@ import java.util.Properties;
  * @Author: Logan.Tang
  * @Date: 2018/10/25 2:18 PM
  */
-public class ProducerTest {
+public class ProducerStream {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
 
@@ -26,29 +25,22 @@ public class ProducerTest {
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        String topic = "fktest";
+        String topic = "dutest";
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
-        for (int i = 0; i < 20; i++) {
-//            producer.send(new ProducerRecord<String, String>(topic,0,null,"hello","kafka-"+i));
-//            int finalI = i;
-//            producer.send(new ProducerRecord<String, String>(topic, "hello", "val-" + i), new Callback() {
-//                @Override
-//                public void onCompletion(RecordMetadata metadata, Exception exception) {
-//                    System.out.println("callback-"+ finalI +":");
-//                    System.out.println(metadata);
-//                }
-//            });
+        int i = 1;
+        while (i < 100000) {
             JSONObject jo = new JSONObject();
-            jo.put("id",i+1);
-            jo.put("time",System.currentTimeMillis());
-
-            producer.send(new ProducerRecord<String, String>(topic, JSON.toJSONString(jo)));
-            System.out.println("put-" + i);
+            jo.put("name", "test-" + i);
+            jo.put("price", RandomUtils.nextDouble(100, 3000));
+            jo.put("no", RandomUtils.nextInt(100000, 999999));
+            jo.put("timestamp", System.currentTimeMillis());
+            producer.send(new ProducerRecord<>(topic, JSON.toJSONString(jo)));
+            i++;
+            Thread.sleep(400);
+            System.out.println(i + " >> " + JSON.toJSONString(jo));
         }
-        System.out.println("done");
-        Thread.sleep(5000);
     }
 }
 

@@ -1,4 +1,4 @@
-package com.qatix.base.kafka;
+package com.qatix.base.mq.kafka;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.PartitionInfo;

@@ -1,4 +1,4 @@
-package com.qatix.base.kafka;
+package com.qatix.base.mq.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
