@@ -30,8 +30,8 @@ public class MergeSort {
             ra[j] = s[mid + j + 1];
         }
 
-        la[n1] = 1 << 30;
-        ra[n2] = 1 << 30;
+        la[n1] = Integer.MAX_VALUE;
+        ra[n2] = Integer.MAX_VALUE;
 
         for (int i = 0, j = 0, k = left; k <= right; k++) {
             System.out.println(i + " " + j + " " + la[i] + " " + ra[j]);

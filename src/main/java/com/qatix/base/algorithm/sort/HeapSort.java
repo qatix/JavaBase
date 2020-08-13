@@ -22,7 +22,7 @@ public class HeapSort {
         s[j] = tmp;
     }
 
-    public void MaxHeapFixDown(int i, int n) {
+    public void maxheapfixdown(int i, int n) {
         int j = 2 * i + 1;
         int temp = s[i];
         while (j < n) {
@@ -41,12 +41,16 @@ public class HeapSort {
     }
 
     public void sort(int n) {
+        //构建大顶推
         for (int i = n / 2 - 1; i >= 0; i--) {
-            MaxHeapFixDown(i, n);
+            maxheapfixdown(i, n);
         }
+        print();
+        //每次把最大值从0位置移动到最后的位置，同时再平衡
         for (int i = n - 1; i >= 1; i--) {
             swap(i, 0);
-            MaxHeapFixDown(0, i);
+            //再堆化
+            maxheapfixdown(0, i);
         }
     }
 
