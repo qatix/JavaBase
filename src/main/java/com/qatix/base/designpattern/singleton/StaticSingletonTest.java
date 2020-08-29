@@ -1,4 +1,4 @@
-package com.qatix.base.designpattern;
+package com.qatix.base.designpattern.singleton;
 
 public class StaticSingletonTest {
     public static void main(String[] args) {

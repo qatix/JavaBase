@@ -1,4 +1,4 @@
-package com.qatix.base.concurrent;
+package com.qatix.base.concurrent.semaphore;
 
 import java.util.concurrent.Semaphore;
 
