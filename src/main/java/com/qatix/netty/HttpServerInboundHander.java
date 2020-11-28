@@ -1,4 +1,4 @@
-package com.qatix.base.netty;
+package com.qatix.netty;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

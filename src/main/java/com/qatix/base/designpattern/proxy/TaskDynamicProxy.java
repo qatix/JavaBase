@@ -11,6 +11,7 @@ public class TaskDynamicProxy implements InvocationHandler {
 
     private Task task;
 
+
     public TaskDynamicProxy(Task task) {
         this.task = task;
     }
@@ -24,9 +25,17 @@ public class TaskDynamicProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("-----> before " + method.getName());
+        before();
         Object ret = method.invoke(task, args); //执行真正的方法
-        System.out.println("-----> after " + method.getName());
+        after();
         return ret;
+    }
+
+    private void before() {
+        System.out.println("handle before");
+    }
+
+    private void after() {
+        System.out.println("handle after");
     }
 }

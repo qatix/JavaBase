@@ -1,4 +1,4 @@
-package com.qatix.base.netty.httpserver;
+package com.qatix.netty.httpserver;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

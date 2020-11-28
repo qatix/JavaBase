@@ -24,12 +24,14 @@ public class TransmittableThreadLocalExample {
         ThreadLocal<String> parentTl = new ThreadLocal<>();
         parentTl.set("java-thread-local");
 
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Tl:" + Thread.currentThread().getName() + ":" + parent.get());
-                System.out.println("Ttl:" + Thread.currentThread().getName() + ":" + parent.get());
-            }
+        ThreadLocal<String> parentTli = new InheritableThreadLocal<>();
+        parentTli.set("java-thread-local-inherit");
+
+
+        Runnable task = () -> {
+            System.out.println("Tl:" + Thread.currentThread().getName() + ":" + parentTl.get());
+            System.out.println("Tli:" + Thread.currentThread().getName() + ":" + parentTli.get());
+            System.out.println("Ttl:" + Thread.currentThread().getName() + ":" + parent.get());
         };
         // 额外的处理，生成修饰了的对象ttlRunnable
         Runnable ttlRunnable = TtlRunnable.get(task);

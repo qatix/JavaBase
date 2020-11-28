@@ -1,4 +1,4 @@
-package com.qatix.base.netty.httpserver;
+package com.qatix.netty.httpserver;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

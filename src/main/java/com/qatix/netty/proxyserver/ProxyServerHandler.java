@@ -1,4 +1,4 @@
-package com.qatix.base.netty.proxyserver;
+package com.qatix.netty.proxyserver;
 
 import com.qatix.base.http.HttpClientUtil;
 import io.netty.buffer.Unpooled;
@@ -22,7 +22,7 @@ public class ProxyServerHandler extends SimpleChannelInboundHandler<Object> {
         if (msg instanceof HttpRequest) {
             DefaultHttpRequest request = (DefaultHttpRequest) msg;
             String host = request.headers().get("host");
-            String uri = request.uri().toString();
+            String uri = request.uri();
             log.info("host:{} uri:{}", host, uri);
             request.headers().forEach(e -> {
                 log.info("header:{}=>{}", e.getKey(), e.getValue());
