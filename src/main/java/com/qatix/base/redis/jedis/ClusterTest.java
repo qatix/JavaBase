@@ -1,4 +1,4 @@
-package com.qatix.base.redis;
+package com.qatix.base.redis.jedis;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;

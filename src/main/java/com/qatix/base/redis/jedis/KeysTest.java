@@ -1,4 +1,4 @@
-package com.qatix.base.redis;
+package com.qatix.base.redis.jedis;
 
 import org.apache.commons.lang3.time.FastDateFormat;
 import redis.clients.jedis.Jedis;

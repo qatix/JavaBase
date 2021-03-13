@@ -1,4 +1,4 @@
-package com.qatix.base.redis;
+package com.qatix.base.redis.jedis;
 
 import java.io.IOException;
 import java.util.Scanner;
