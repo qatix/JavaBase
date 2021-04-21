@@ -28,3 +28,4 @@ logs/
 .scannerwork
 test/
 tmp/
+.secure/
