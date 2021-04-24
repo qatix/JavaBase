@@ -1,0 +1,10 @@
+name: zhangsan
+age: 20
+gender: 1
+nickname: zs
+hometown: bj
+address:
+  country: China
+  province: Gansu
+  city: zhangye
+  street: 1st street
