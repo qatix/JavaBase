@@ -8,7 +8,7 @@
     <version>1.0</version>
 
     <properties>
-        <hadoop.version>3.1.0</hadoop.version>
+        <hadoop.version>3.2.4</hadoop.version>
         <grpc.version>1.17.1</grpc.version>
         <lucene.version>7.7.1</lucene.version>
         <kotlin.version>1.4.20</kotlin.version>
